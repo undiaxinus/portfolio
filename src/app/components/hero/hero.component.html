@@ -1,0 +1,90 @@
+<section class="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+  <!-- Background Elements -->
+  <div class="absolute inset-0 overflow-hidden">
+    <!-- Gradient Circles -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full filter blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-pink-500/20 rounded-full filter blur-3xl"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="min-h-screen flex items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Text Content -->
+        <div class="space-y-8">
+          <div class="space-y-4">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-800 dark:text-white">
+              Hi, I'm {{personalInfo.name}} 👋
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">
+              {{personalInfo.title}}
+            </h2>
+          </div>
+
+          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
+            {{personalInfo.description}}
+          </p>
+
+          <!-- Location -->
+          <div class="flex items-center text-gray-600 dark:text-gray-400">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span>{{personalInfo.location}}</span>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap gap-4">
+            <a routerLink="/contact" 
+               class="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg 
+                      transform transition duration-300 hover:scale-105 hover:shadow-lg">
+              Get in Touch
+            </a>
+            <a routerLink="/portfolio"
+               class="px-8 py-3 bg-white dark:bg-gray-800 text-gray-800 dark:text-white font-semibold rounded-lg 
+                      border-2 border-gray-200 dark:border-gray-700
+                      transform transition duration-300 hover:scale-105 hover:shadow-lg">
+              View Projects
+            </a>
+          </div>
+
+          <!-- Tech Stack -->
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Tech Stack</p>
+            <div class="flex flex-wrap gap-3">
+              <div *ngFor="let tech of ['Angular', 'Laravel', 'PostgreSQL', 'Arduino']"
+                   class="px-4 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700
+                          text-gray-800 dark:text-white text-sm font-medium">
+                {{tech}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="relative">
+          <!-- Profile Image Container -->
+          <div class="relative w-full aspect-square max-w-md mx-auto">
+            <!-- Background Circle -->
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full 
+                        animate-pulse filter blur-xl opacity-30">
+            </div>
+            <!-- Image -->
+            <img [src]="personalInfo.profileImage" 
+                 [alt]="personalInfo.name"
+                 class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white dark:border-gray-800 shadow-xl">
+          </div>
+
+          <!-- Floating Elements -->
+          <div class="absolute -top-4 -right-4 w-20 h-20 bg-purple-500 rounded-lg rotate-12 animate-float"></div>
+          <div class="absolute -bottom-4 -left-4 w-20 h-20 bg-pink-500 rounded-full animate-float-delayed"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  

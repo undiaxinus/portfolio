@@ -1,0 +1,137 @@
+<section class="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+  <div class="container mx-auto px-6">
+    <!-- Header with Download Button -->
+    <div class="flex justify-between items-center mb-16">
+      <div class="text-center flex-1">
+        <h2 class="text-4xl font-bold text-gray-800 dark:text-white mb-4">Resume</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
+      </div>
+      <button (click)="downloadPDF()" 
+              class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg flex items-center transition duration-300">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        Download PDF
+      </button>
+    </div>
+
+    <!-- Resume Content -->
+    <div id="resume-content" class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Left Column -->
+        <div class="lg:col-span-2 space-y-12">
+          <!-- Education -->
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
+              <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v7"/>
+              </svg>
+              Education
+            </h3>
+            <div class="space-y-6">
+              <div *ngFor="let edu of education" 
+                   class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                <h4 class="text-xl font-bold text-gray-800 dark:text-white mb-2">{{edu.degree}}</h4>
+                <p class="text-purple-600 dark:text-purple-400 mb-2">{{edu.school}}</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-2">{{edu.year}}</p>
+                <p class="text-gray-600 dark:text-gray-300">{{edu.description}}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
+              <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              Experience
+            </h3>
+            <div class="space-y-6">
+              <div *ngFor="let exp of experience" 
+                   class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                <h4 class="text-xl font-bold text-gray-800 dark:text-white mb-2">{{exp.position}}</h4>
+                <p class="text-purple-600 dark:text-purple-400 mb-2">{{exp.company}}</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">{{exp.period}}</p>
+                <ul class="list-disc list-inside space-y-2">
+                  <li *ngFor="let responsibility of exp.responsibilities" 
+                      class="text-gray-600 dark:text-gray-300">
+                    {{responsibility}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="space-y-12">
+          <!-- Skills -->
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
+              <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
+              Skills
+            </h3>
+            
+            <!-- Technical Skills -->
+            <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg mb-6">
+              <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Technical Skills</h4>
+              <div class="flex flex-wrap gap-2">
+                <span *ngFor="let skill of skills.technical"
+                      class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-sm">
+                  {{skill}}
+                </span>
+              </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg mb-6">
+              <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Tools & Technologies</h4>
+              <div class="flex flex-wrap gap-2">
+                <span *ngFor="let tool of skills.tools"
+                      class="px-3 py-1 bg-pink-100 dark:bg-pink-900 text-pink-600 dark:text-pink-300 rounded-full text-sm">
+                  {{tool}}
+                </span>
+              </div>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+              <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Soft Skills</h4>
+              <div class="flex flex-wrap gap-2">
+                <span *ngFor="let skill of skills.soft"
+                      class="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 rounded-full text-sm">
+                  {{skill}}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div>
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
+              <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+              </svg>
+              Certifications
+            </h3>
+            <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+              <div class="space-y-4">
+                <div *ngFor="let cert of certifications" 
+                     class="border-b border-gray-200 dark:border-gray-600 last:border-0 pb-4 last:pb-0">
+                  <h4 class="font-semibold text-gray-800 dark:text-white">{{cert.name}}</h4>
+                  <p class="text-purple-600 dark:text-purple-400">{{cert.issuer}}</p>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">{{cert.date}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

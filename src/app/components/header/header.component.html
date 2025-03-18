@@ -1,0 +1,45 @@
+<header class="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 z-50 transition-colors duration-300">
+  <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <a routerLink="/" class="text-2xl font-bold text-gray-800 dark:text-white">Jamille B. Anonuevo</a>
+    
+    <!-- Mobile menu button -->
+    <button (click)="toggleMenu()" class="md:hidden p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <!-- Desktop menu -->
+    <div class="hidden md:flex items-center">
+      <a routerLink="/about" routerLinkActive="text-purple-600 dark:text-purple-400" class="mx-3 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">About</a>
+      <a routerLink="/portfolio" routerLinkActive="text-purple-600 dark:text-purple-400" class="mx-3 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Portfolio</a>
+      <a routerLink="/services" routerLinkActive="text-purple-600 dark:text-purple-400" class="mx-3 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Services</a>
+      <a routerLink="/testimonials" routerLinkActive="text-purple-600 dark:text-purple-400" class="mx-3 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Testimonials</a>
+      <a routerLink="/contact" routerLinkActive="text-purple-600 dark:text-purple-400" class="mx-3 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Contact</a>
+      <a routerLink="/resume" routerLinkActive="text-purple-600 dark:text-purple-400" class="mx-3 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Resume</a>
+      <button (click)="toggleDarkMode()" class="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu (hidden by default) -->
+    <div [class.hidden]="!isMenuOpen" class="absolute top-full left-0 right-0 bg-white dark:bg-gray-900 md:hidden">
+      <div class="flex flex-col px-6 py-4 space-y-4">
+        <a routerLink="/about" routerLinkActive="text-purple-600 dark:text-purple-400" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">About</a>
+        <a routerLink="/portfolio" routerLinkActive="text-purple-600 dark:text-purple-400" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Portfolio</a>
+        <a routerLink="/services" routerLinkActive="text-purple-600 dark:text-purple-400" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Services</a>
+        <a routerLink="/testimonials" routerLinkActive="text-purple-600 dark:text-purple-400" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Testimonials</a>
+        <a routerLink="/contact" routerLinkActive="text-purple-600 dark:text-purple-400" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Contact</a>
+        <a routerLink="/resume" routerLinkActive="text-purple-600 dark:text-purple-400" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Resume</a>
+        <button (click)="toggleDarkMode()" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 w-fit">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+

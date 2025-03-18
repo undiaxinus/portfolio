@@ -1,0 +1,107 @@
+<section class="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+  <div class="container mx-auto px-6">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-800 dark:text-white mb-4">About Me</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
+      <!-- Profile Image -->
+      <div class="lg:w-1/3">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-500 rounded-lg transform rotate-6"></div>
+          <div class="relative z-10">
+            <img src="../../assets/jamz.jpg" alt="Profile" 
+                 class="rounded-lg shadow-xl w-full object-cover aspect-square">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bio -->
+      <div class="lg:w-2/3">
+        <h3 class="text-3xl font-bold text-gray-800 dark:text-white mb-6">
+          Building Modern Web Solutions
+        </h3>
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+          As a passionate Full Stack Web Developer with experience in both professional and freelance environments, I specialize in creating responsive and user-friendly web applications. Currently working part-time at Quanby Solutions Inc. while pursuing freelance projects, I combine my technical skills with creative problem-solving to deliver efficient and scalable solutions.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+            <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">Education</h4>
+            <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+              <li>🎓 Bachelor of Science in Information Systems</li>
+              <li>🏫 Southern Luzon Technological College Foundation, Inc.</li>
+              <li>📚 Web Development & Systems Integration</li>
+            </ul>
+          </div>
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+            <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">Interests</h4>
+            <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+              <li>🌐 Web Technologies</li>
+              <li>🎨 Arduino & Electronics</li>
+              <li>📱 Mobile Development</li>
+              <li>💻 IoT Projects</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+      <!-- Development Skills -->
+      <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg">
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">Development Skills</h3>
+        <div class="space-y-6">
+          <div *ngFor="let skill of skills.development">
+            <div class="flex justify-between mb-2">
+              <span class="text-gray-600 dark:text-gray-300">{{skill.name}}</span>
+              <span class="text-gray-600 dark:text-gray-300">{{skill.level}}%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+              <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2.5 rounded-full"
+                   [style.width]="skill.level + '%'"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Artistic Skills -->
+      <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg">
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">Artistic Skills</h3>
+        <div class="space-y-6">
+          <div *ngFor="let skill of skills.design">
+            <div class="flex justify-between mb-2">
+              <span class="text-gray-600 dark:text-gray-300">{{skill.name}}</span>
+              <span class="text-gray-600 dark:text-gray-300">{{skill.level}}%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+              <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2.5 rounded-full"
+                   [style.width]="skill.level + '%'"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience Timeline -->
+    <div class="max-w-3xl mx-auto">
+      <h3 class="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">Experience</h3>
+      <div class="space-y-8">
+        <div *ngFor="let exp of experiences" class="relative pl-8 border-l-2 border-purple-500">
+          <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+            <span class="text-sm text-purple-500 dark:text-purple-400 font-semibold">{{exp.year}}</span>
+            <h4 class="text-xl font-bold text-gray-800 dark:text-white mt-2">{{exp.title}}</h4>
+            <p class="text-gray-600 dark:text-gray-400 mt-1">{{exp.company}}</p>
+            <p class="text-gray-600 dark:text-gray-300 mt-3">{{exp.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  

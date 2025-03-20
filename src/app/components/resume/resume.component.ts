@@ -13,8 +13,8 @@ import jsPDF from 'jspdf';
 export class ResumeComponent {
   education = [
     {
-      degree: 'Bachelor of Science in Information Technology',
-      school: 'Bicol University',
+      degree: 'Bachelor of Science in Information System',
+      school: 'Southern Luzon Technological College Foundation Inc.',
       year: '2020 - 2024',
       description: 'Specialized in Web Development and Software Engineering'
     }
@@ -46,7 +46,7 @@ export class ResumeComponent {
     {
       position: 'Web Development Intern',
       company: 'Quanby Solutions Inc.',
-      period: '2023',
+      period: '2024',
       responsibilities: [
         'Assisted in developing web applications using Angular',
         'Learned and implemented best practices in web development',
@@ -60,11 +60,11 @@ export class ResumeComponent {
     technical: [
       'Angular', 'TypeScript', 'JavaScript', 'PHP/Laravel',
       'HTML5/CSS3', 'Node.js', 'PostgreSQL/MySQL',
-      'Git/GitHub', 'RESTful APIs', 'Responsive Design'
+      'Git/GitHub', 'Responsive Design',
+      'C++', 'Arduino'
     ],
     tools: [
-      'VS Code', 'Postman', 'GitHub Desktop',
-      'Adobe XD', 'Figma', 'Arduino IDE'
+      'VS Code', 'Figma', 'Arduino IDE', 'Shapr3D'
     ],
     soft: [
       'Problem Solving', 'Team Collaboration',

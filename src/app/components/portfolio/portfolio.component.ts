@@ -14,41 +14,57 @@ export class PortfolioComponent {
       name: 'JeepFinder',
       description: 'A comprehensive web and mobile application for tracking jeepney routes and locations. Built with HTML, CSS, JavaScript, PHP for web interface and MIT App Inventor for the mobile app.',
       technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MIT App Inventor'],
-      image: 'assets/jeepfinder.jpg',
-      demo: 'https://jeepfinder-demo.com',
-      github: 'https://github.com/yourusername/jeepfinder'
+      image: 'assets/photos/jeepfinder.webp',
+      demo: 'https://peachpuff-donkey-807602.hostingersite.com',
+      github: 'https://github.com/undiaxinus/jeepfinder'
     },
     {
-      name: 'Inventory Management System',
-      description: 'A comprehensive system built with Angular, Laravel, and MySQL for tracking inventory, sales, and generating reports.',
-      technologies: ['Angular', 'Laravel', 'MySQL', 'Tailwind CSS'],
+      name: 'Fidelity Bond Alert Monitoring System',
+      description: 'A comprehensive web and mobile application for monitoring and alerting fidelity bond statuses. Built with Angular for the web interface and Kotlin for the mobile application.',
+      technologies: ['Angular', 'Kotlin', 'Supabase', 'REST API', 'Material Design'],
       image: 'https://picsum.photos/id/180/800/600',
-      demo: 'https://inventory-demo.com',
-      github: 'https://github.com/yourusername/inventory'
+      demo: 'https://5ca365c5.test-deployment-fbus.pages.dev/landing',
+      github: 'https://github.com/undiaxinus/fbus'
     },
     {
-      name: 'Smart Home Arduino Project',
-      description: 'IoT-based home automation system using Arduino, featuring temperature monitoring, light control, and mobile app integration.',
-      technologies: ['Arduino', 'C++', 'IoT Sensors', 'Mobile App'],
+      name: '16 in 1 Tea - Herbal Tea Shop',
+      description: 'An online shop specializing in herbal tea products. Features product catalog, shopping cart, user accounts, and secure checkout.',
+      technologies: ['HTML', 'JavaScript', 'PHP', 'CSS', 'MySQL'],
       image: 'https://picsum.photos/id/20/800/600',
-      demo: 'https://smart-home-demo.com',
-      github: 'https://github.com/yourusername/smart-home'
+      demo: 'https://www.16in1tea.com',
+      github: 'https://github.com/undiaxinus/16in1tea'
     },
     {
-      name: 'Task Management Platform',
-      description: 'Real-time task management application with team collaboration features using Angular and Supabase.',
-      technologies: ['Angular', 'TypeScript', 'Supabase', 'Tailwind CSS'],
+      name: 'Pacific Blue Co-Working Space & POS System',
+      description: 'A management system for co-working spaces with integrated point of sale capabilities. Features include membership management, space booking, billing, inventory tracking, and financial reporting.',
+      technologies: ['Bootstrap', 'HTML', 'PHP', 'MySQL'],
       image: 'https://picsum.photos/id/160/800/600',
-      demo: 'https://task-manager-demo.com',
-      github: 'https://github.com/yourusername/task-manager'
+      demo: 'https://pacific-blue.example.com',
+      github: 'https://github.com/undiaxinus/Pblue-CoWorkPOS'
     },
     {
-      name: 'E-Learning Portal',
-      description: 'Educational platform with video courses, quizzes, and progress tracking using Angular and Node.js.',
-      technologies: ['Angular', 'Node.js', 'PostgreSQL', 'Express.js'],
+      name: 'Portal for Grading System',
+      description: 'A comprehensive grading management system for educational institutions. Features student records, grade calculation, report generation, and academic performance tracking.',
+      technologies: ['Bootstrap', 'HTML', 'PHP', 'MySQL'],
       image: 'https://picsum.photos/id/100/800/600',
-      demo: 'https://elearning-demo.com',
-      github: 'https://github.com/yourusername/elearning'
+      demo: 'https://grading-portal.example.com',
+      github: 'https://github.com/undiaxinus/grading-portal'
+    },
+    {
+      name: 'Business Permit Document Management System',
+      description: 'A comprehensive system for managing business permit applications and documents. Features request for quotation (RFQ) processing, document tracking, workflow automation, and status notifications.',
+      technologies: ['Angular', 'TypeScript', 'Supabase', 'Node.js'],
+      image: 'https://picsum.photos/id/160/800/600',
+      demo: 'https://bpdms.example.com',
+      github: 'https://github.com/undiaxinus/bpdms'
+    },
+    {
+      name: 'Iphopil Document Management System',
+      description: 'A rapid development document management system built for Posqua in just 5 days. Features document indexing, search functionality, user access controls, and version tracking.',
+      technologies: ['Angular', 'TypeScript', 'Supabase', 'Material UI'],
+      image: 'https://picsum.photos/id/160/800/600',
+      demo: 'https://iphopil-dms.example.com',
+      github: 'https://github.com/undiaxinus/iphopil-dms'
     }
   ];
 

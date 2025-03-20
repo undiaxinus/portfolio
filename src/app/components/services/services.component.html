@@ -1,48 +1,39 @@
-<section class="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
-  <div class="container mx-auto px-6">
+<section class="py-20 bg-[#FDFBEE] dark:bg-[#015551]">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold text-gray-800 dark:text-white mb-4">Services</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
-      <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-        Providing professional web development and technical solutions
-      </p>
+      <h2 class="text-4xl font-bold text-[#015551] dark:text-[#FDFBEE] mb-4">My Services</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-[#57B4BA] to-[#FE4F2D] mx-auto"></div>
     </div>
 
     <!-- Services Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <div *ngFor="let service of services" 
-           class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-8 transform transition duration-300 hover:scale-105">
+           class="group bg-white/50 dark:bg-[#015551]/50 backdrop-blur-sm rounded-xl p-6
+                  transform transition-all duration-300 hover:scale-105 hover:shadow-xl
+                  border border-[#57B4BA]/10 hover:border-[#57B4BA]/30">
         <!-- Icon -->
-        <div class="mb-6 text-purple-600 dark:text-purple-400" [innerHTML]="service.icon">
+        <div class="w-16 h-16 mb-6 text-[#FE4F2D] group-hover:text-[#57B4BA] transition-colors"
+             [innerHTML]="service.icon">
         </div>
 
-        <!-- Title -->
-        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
-          {{service.title}}
-        </h3>
+        <!-- Content -->
+        <h3 class="text-xl font-bold text-[#015551] dark:text-[#FDFBEE] mb-4">{{service.title}}</h3>
+        <p class="text-[#015551]/80 dark:text-[#FDFBEE]/80 mb-6">{{service.description}}</p>
 
-        <!-- Description -->
-        <p class="text-gray-600 dark:text-gray-300 mb-6">
-          {{service.description}}
-        </p>
-
-        <!-- Features List -->
+        <!-- Features -->
         <ul class="space-y-3">
           <li *ngFor="let feature of service.features" 
-              class="flex items-center text-gray-600 dark:text-gray-300">
-            <svg class="w-5 h-5 mr-2 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              class="flex items-center text-[#015551]/70 dark:text-[#FDFBEE]/70">
+            <svg class="w-5 h-5 mr-2 text-[#57B4BA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
             </svg>
             {{feature}}
           </li>
         </ul>
 
-        <!-- Action Button -->
-        <button class="mt-8 w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 px-6 rounded-lg 
-                     transform transition duration-300 hover:scale-105 hover:shadow-lg">
-          Learn More
-        </button>
+        <!-- Hover Decoration -->
+        <div class="absolute -z-10 inset-0 bg-gradient-to-br from-[#57B4BA]/5 to-[#FE4F2D]/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
       </div>
     </div>
   </div>

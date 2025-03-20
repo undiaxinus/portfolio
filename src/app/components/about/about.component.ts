@@ -22,7 +22,7 @@ export class AboutComponent {
     ],
     design: [
       { name: 'HTML/CSS', level: 95 },
-      { name: 'UI/UX Design', level: 85 },
+      // { name: 'UI/UX Design', level: 85 },
       { name: 'Responsive Design', level: 90 },
       { name: 'Arduino Programming', level: 80 },
       { name: 'Git/GitHub', level: 85 }

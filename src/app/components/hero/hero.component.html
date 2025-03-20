@@ -1,33 +1,39 @@
-<section class="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+<section class="min-h-screen relative overflow-hidden bg-[#FDFBEE] dark:bg-[#015551]">
   <!-- Background Elements -->
   <div class="absolute inset-0 overflow-hidden">
-    <!-- Gradient Circles -->
-    <div class="absolute top-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full filter blur-3xl"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-pink-500/20 rounded-full filter blur-3xl"></div>
+    <!-- Animated Gradient Circles -->
+    <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-[#57B4BA]/20 dark:bg-[#57B4BA]/30 rounded-full filter blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#FE4F2D]/10 dark:bg-[#FE4F2D]/20 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#57B4BA]/10 dark:bg-[#57B4BA]/20 rounded-full filter blur-3xl animate-pulse delay-500"></div>
   </div>
 
   <!-- Content -->
-  <div class="container mx-auto px-6 relative z-10">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-20 mb-10 relative z-10">
     <div class="min-h-screen flex items-center">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
         <!-- Text Content -->
-        <div class="space-y-8">
-          <div class="space-y-4">
-            <h1 class="text-4xl md:text-6xl font-bold text-gray-800 dark:text-white">
-              Hi, I'm {{personalInfo.name}} 👋
+        <div class="lg:col-span-7 space-y-10">
+          <div class="space-y-6">
+            <div class="inline-block">
+              <span class="px-4 py-2 rounded-full bg-[#57B4BA]/20 text-[#015551] dark:bg-[#57B4BA]/30 dark:text-[#FDFBEE] text-sm font-medium">
+                Welcome to my portfolio
+              </span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-[#015551] dark:text-[#FDFBEE] leading-tight">
+              Hi, I'm <span class="bg-gradient-to-r from-[#FE4F2D] to-[#FE4F2D]/80 text-transparent bg-clip-text">{{personalInfo.name}}</span>
             </h1>
-            <h2 class="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">
+            <h2 class="text-2xl md:text-4xl font-semibold text-[#57B4BA] dark:text-[#57B4BA]">
               {{personalInfo.title}}
             </h2>
           </div>
 
-          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
+          <p class="text-xl text-[#015551]/80 dark:text-[#FDFBEE]/80 max-w-2xl leading-relaxed">
             {{personalInfo.description}}
           </p>
 
           <!-- Location -->
-          <div class="flex items-center text-gray-600 dark:text-gray-400">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="flex items-center text-[#015551]/70 dark:text-[#FDFBEE]/70 bg-white/50 dark:bg-[#015551]/60 rounded-full px-4 py-2 w-fit shadow-sm backdrop-blur-sm">
+            <svg class="w-5 h-5 mr-2 text-[#FE4F2D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
                     d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
@@ -37,27 +43,38 @@
           </div>
 
           <!-- CTA Buttons -->
-          <div class="flex flex-wrap gap-4">
+          <div class="flex flex-wrap gap-6">
             <a routerLink="/contact" 
-               class="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg 
-                      transform transition duration-300 hover:scale-105 hover:shadow-lg">
-              Get in Touch
+               class="px-8 py-4 bg-[#FE4F2D] text-[#FDFBEE] font-semibold rounded-xl 
+                      transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#FE4F2D]/20
+                      flex items-center gap-2">
+              <span>Get in Touch</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
             </a>
             <a routerLink="/portfolio"
-               class="px-8 py-3 bg-white dark:bg-gray-800 text-gray-800 dark:text-white font-semibold rounded-lg 
-                      border-2 border-gray-200 dark:border-gray-700
-                      transform transition duration-300 hover:scale-105 hover:shadow-lg">
-              View Projects
+               class="px-8 py-4 bg-[#57B4BA]/10 text-[#015551] dark:bg-[#57B4BA]/30 dark:text-[#FDFBEE] font-semibold rounded-xl 
+                      border border-[#57B4BA]/20 dark:border-[#57B4BA]/50
+                      transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#57B4BA]/20
+                      flex items-center gap-2 backdrop-blur-sm">
+              <span>View Projects</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
             </a>
           </div>
 
           <!-- Tech Stack -->
-          <div>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Tech Stack</p>
+          <div class="space-y-4">
+            <p class="text-sm font-medium text-[#015551]/70 dark:text-[#FDFBEE]/80">Tech Stack</p>
             <div class="flex flex-wrap gap-3">
               <div *ngFor="let tech of ['Angular', 'Laravel', 'PostgreSQL', 'Arduino']"
-                   class="px-4 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700
-                          text-gray-800 dark:text-white text-sm font-medium">
+                   class="px-5 py-2.5 bg-white/50 dark:bg-[#015551]/60 rounded-xl shadow-sm border border-[#57B4BA]/20 dark:border-[#57B4BA]/40
+                          text-[#015551] dark:text-[#FDFBEE] text-sm font-medium
+                          transform transition duration-300 hover:scale-105 hover:shadow-md backdrop-blur-sm
+                          flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#FE4F2D]"></span>
                 {{tech}}
               </div>
             </div>
@@ -65,22 +82,23 @@
         </div>
 
         <!-- Image -->
-        <div class="relative">
+        <div class="lg:col-span-5 relative">
           <!-- Profile Image Container -->
           <div class="relative w-full aspect-square max-w-md mx-auto">
-            <!-- Background Circle -->
-            <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full 
-                        animate-pulse filter blur-xl opacity-30">
-            </div>
+            <!-- Background Elements -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#FE4F2D] to-[#FE4F2D]/80 rounded-2xl 
+                        rotate-6 transform transition-transform duration-500 hover:rotate-12"></div>
             <!-- Image -->
-            <img [src]="personalInfo.profileImage" 
-                 [alt]="personalInfo.name"
-                 class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white dark:border-gray-800 shadow-xl">
+            <div class="relative bg-[#FDFBEE] dark:bg-[#01423F] rounded-2xl p-3 transform -rotate-6 transition-transform duration-500 hover:rotate-0">
+              <img [src]="personalInfo.profileImage" 
+                   [alt]="personalInfo.name"
+                   class="w-full h-full object-cover rounded-xl shadow-lg">
+            </div>
           </div>
 
           <!-- Floating Elements -->
-          <div class="absolute -top-4 -right-4 w-20 h-20 bg-purple-500 rounded-lg rotate-12 animate-float"></div>
-          <div class="absolute -bottom-4 -left-4 w-20 h-20 bg-pink-500 rounded-full animate-float-delayed"></div>
+          <div class="absolute -top-6 -right-6 w-24 h-24 bg-[#57B4BA]/30 backdrop-blur-xl rounded-xl rotate-12 animate-float"></div>
+          <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-[#FE4F2D]/20 backdrop-blur-xl rounded-full animate-float-delayed"></div>
         </div>
       </div>
     </div>

@@ -1,45 +1,104 @@
-<header class="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 z-50 transition-colors duration-300">
-  <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-    <a routerLink="/" class="text-2xl font-bold text-gray-800 dark:text-white">Jamille B. Anonuevo</a>
-    
-    <!-- Mobile menu button -->
-    <button (click)="toggleMenu()" class="md:hidden p-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+<header class="fixed w-full top-0 z-50 bg-[#FDFBEE]/80 dark:bg-[#015551]/80 backdrop-blur-lg border-b border-[#57B4BA]/10">
+  <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a routerLink="/" class="flex items-center space-x-2">
+        <span class="text-2xl font-bold bg-gradient-to-r from-[#015551] to-[#57B4BA] dark:from-[#57B4BA] dark:to-[#FDFBEE] text-transparent bg-clip-text">JB</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a routerLink="/about" 
+           routerLinkActive="text-[#FE4F2D]"
+           class="text-[#015551] dark:text-[#FDFBEE] hover:text-[#57B4BA] dark:hover:text-[#57B4BA] transition-colors">
+          About
+        </a>
+        <a routerLink="/portfolio" 
+           routerLinkActive="text-[#FE4F2D]"
+           class="text-[#015551] dark:text-[#FDFBEE] hover:text-[#57B4BA] dark:hover:text-[#57B4BA] transition-colors">
+          Portfolio
+        </a>
+        <a routerLink="/services" 
+           routerLinkActive="text-[#FE4F2D]"
+           class="text-[#015551] dark:text-[#FDFBEE] hover:text-[#57B4BA] dark:hover:text-[#57B4BA] transition-colors">
+          Services
+        </a>
+        <!-- <a routerLink="/testimonials" 
+           routerLinkActive="text-[#FE4F2D]"
+           class="text-[#015551] dark:text-[#FDFBEE] hover:text-[#57B4BA] dark:hover:text-[#57B4BA] transition-colors">
+          Testimonials
+        </a> -->
+        <a routerLink="/contact" 
+           routerLinkActive="text-[#FE4F2D]"
+           class="text-[#015551] dark:text-[#FDFBEE] hover:text-[#57B4BA] dark:hover:text-[#57B4BA] transition-colors">
+          Contact
+        </a>
+      </div>
+
+      <!-- Theme Toggle & Mobile Menu Button -->
+      <div class="flex items-center space-x-4">
+        <button (click)="toggleDarkMode()" 
+                class="p-2 rounded-lg bg-[#57B4BA]/10 text-[#015551] dark:text-[#FDFBEE] hover:bg-[#57B4BA]/20 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+            </path>
       </svg>
     </button>
 
-    <!-- Desktop menu -->
-    <div class="hidden md:flex items-center">
-      <a routerLink="/about" routerLinkActive="text-purple-600 dark:text-purple-400" class="mx-3 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">About</a>
-      <a routerLink="/portfolio" routerLinkActive="text-purple-600 dark:text-purple-400" class="mx-3 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Portfolio</a>
-      <a routerLink="/services" routerLinkActive="text-purple-600 dark:text-purple-400" class="mx-3 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Services</a>
-      <a routerLink="/testimonials" routerLinkActive="text-purple-600 dark:text-purple-400" class="mx-3 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Testimonials</a>
-      <a routerLink="/contact" routerLinkActive="text-purple-600 dark:text-purple-400" class="mx-3 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Contact</a>
-      <a routerLink="/resume" routerLinkActive="text-purple-600 dark:text-purple-400" class="mx-3 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Resume</a>
-      <button (click)="toggleDarkMode()" class="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile menu (hidden by default) -->
-    <div [class.hidden]="!isMenuOpen" class="absolute top-full left-0 right-0 bg-white dark:bg-gray-900 md:hidden">
-      <div class="flex flex-col px-6 py-4 space-y-4">
-        <a routerLink="/about" routerLinkActive="text-purple-600 dark:text-purple-400" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">About</a>
-        <a routerLink="/portfolio" routerLinkActive="text-purple-600 dark:text-purple-400" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Portfolio</a>
-        <a routerLink="/services" routerLinkActive="text-purple-600 dark:text-purple-400" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Services</a>
-        <a routerLink="/testimonials" routerLinkActive="text-purple-600 dark:text-purple-400" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Testimonials</a>
-        <a routerLink="/contact" routerLinkActive="text-purple-600 dark:text-purple-400" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Contact</a>
-        <a routerLink="/resume" routerLinkActive="text-purple-600 dark:text-purple-400" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">Resume</a>
-        <button (click)="toggleDarkMode()" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 w-fit">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        <!-- Mobile Menu Button -->
+        <button (click)="toggleMenu()" 
+                class="md:hidden p-2 rounded-lg bg-[#57B4BA]/10 text-[#015551] dark:text-[#FDFBEE] hover:bg-[#57B4BA]/20 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path *ngIf="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <path *ngIf="isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
     </div>
+
+    <!-- Mobile Navigation -->
+    <div *ngIf="isMenuOpen" 
+         class="md:hidden absolute top-16 left-0 right-0 bg-[#FDFBEE] dark:bg-[#015551] border-b border-[#57B4BA]/10 shadow-lg">
+      <div class="px-4 py-6 space-y-4">
+        <a routerLink="/about" 
+           routerLinkActive="text-[#FE4F2D]"
+           class="block text-[#015551] dark:text-[#FDFBEE] hover:text-[#57B4BA] dark:hover:text-[#57B4BA] transition-colors"
+           (click)="toggleMenu()">
+          About
+        </a>
+        <a routerLink="/portfolio" 
+           routerLinkActive="text-[#FE4F2D]"
+           class="block text-[#015551] dark:text-[#FDFBEE] hover:text-[#57B4BA] dark:hover:text-[#57B4BA] transition-colors"
+           (click)="toggleMenu()">
+          Portfolio
+        </a>
+        <a routerLink="/services" 
+           routerLinkActive="text-[#FE4F2D]"
+           class="block text-[#015551] dark:text-[#FDFBEE] hover:text-[#57B4BA] dark:hover:text-[#57B4BA] transition-colors"
+           (click)="toggleMenu()">
+          Services
+        </a>
+        <a routerLink="/testimonials" 
+           routerLinkActive="text-[#FE4F2D]"
+           class="block text-[#015551] dark:text-[#FDFBEE] hover:text-[#57B4BA] dark:hover:text-[#57B4BA] transition-colors"
+           (click)="toggleMenu()">
+          Testimonials
+        </a>
+        <a routerLink="/contact" 
+           routerLinkActive="text-[#FE4F2D]"
+           class="block text-[#015551] dark:text-[#FDFBEE] hover:text-[#57B4BA] dark:hover:text-[#57B4BA] transition-colors"
+           (click)="toggleMenu()">
+          Contact
+        </a>
+      </div>
+    </div>
   </nav>
 </header>
+
+<!-- Hidden Resume Link with Keyboard Shortcut -->
+<a routerLink="/resume" id="resume-shortcut" class="hidden"></a>
+
+<!-- Hidden Login Link with Keyboard Shortcut -->
+<a routerLink="/login" id="login-shortcut" class="hidden"></a>
 

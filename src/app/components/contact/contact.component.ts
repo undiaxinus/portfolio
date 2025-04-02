@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -10,15 +10,18 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   contactForm: FormGroup;
+  isSubmitting = false;
+  submitSuccess = false;
+  submitError = false;
   contactInfo: any;
 
   constructor(private fb: FormBuilder, private sanitizer: DomSanitizer) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      subject: ['', Validators.required],
+      subject: ['', [Validators.required, Validators.minLength(3)]],
       message: ['', [Validators.required, Validators.minLength(10)]]
     });
 
@@ -59,10 +62,30 @@ export class ContactComponent {
     };
   }
 
+  ngOnInit(): void {}
+
   onSubmit() {
     if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
-      // Add your form submission logic here
+      this.isSubmitting = true;
+      const formData = this.contactForm.value;
+      
+      // Create mailto link with form data
+      const mailtoLink = `mailto:anonuevojamille@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )}`;
+      
+      // Open Gmail compose window
+      window.location.href = mailtoLink;
+      
+      // Reset form
+      this.contactForm.reset();
+      this.isSubmitting = false;
+      this.submitSuccess = true;
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        this.submitSuccess = false;
+      }, 5000);
     }
   }
 }

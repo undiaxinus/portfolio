@@ -20,7 +20,6 @@ export class ContactComponent implements OnInit {
   constructor(private fb: FormBuilder, private sanitizer: DomSanitizer) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [Validators.required, Validators.email]],
       subject: ['', [Validators.required, Validators.minLength(3)]],
       message: ['', [Validators.required, Validators.minLength(10)]]
     });
@@ -69,13 +68,22 @@ export class ContactComponent implements OnInit {
       this.isSubmitting = true;
       const formData = this.contactForm.value;
       
-      // Create mailto link with form data
-      const mailtoLink = `mailto:anonuevojamille@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      )}`;
+      // Debug log to check form data
+      console.log('Form Data:', formData);
+      
+      // Create Gmail compose URL with form data
+      const subject = encodeURIComponent(formData.subject || 'Contact Form Submission');
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\n\nMessage:\n${formData.message}`
+      );
+      
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(this.contactInfo.email)}&subject=${subject}&body=${body}`;
+      
+      // Debug log to check URL
+      console.log('Gmail URL:', gmailUrl);
       
       // Open Gmail compose window
-      window.location.href = mailtoLink;
+      window.open(gmailUrl, '_blank');
       
       // Reset form
       this.contactForm.reset();

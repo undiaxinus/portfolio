@@ -37,7 +37,7 @@ export class PortfolioComponent {
     {
       name: 'Pacific Blue Co-Working Space & POS System',
       description: 'A management system for co-working spaces with integrated point of sale capabilities. Features include membership management, space booking, billing, inventory tracking, and financial reporting.',
-      technologies: ['Bootstrap', 'HTML', 'PHP', 'MySQL'],
+      technologies: ['Bootstrap', 'HTML', 'PHP', 'MySQL', 'JavaScript'],
       image: 'assets/photos/pblue.png',
       demo: 'https://pacific-blue.example.com',
       github: 'https://github.com/undiaxinus/Pblue-CoWorkPOS'
@@ -108,55 +108,55 @@ export class PortfolioComponent {
       title: 'Digital Art 1',
       category: 'Digital',
       image: 'assets/gallery/1.png',
-      description: 'Digital artwork created using modern tools'
+      description: ''
     },
     {
       title: 'Digital Art 2',
       category: 'Digital',
       image: 'assets/gallery/2.png',
-      description: 'Digital artwork created using modern tools'
+      description: ''
     },
     {
       title: 'Digital Art 3',
       category: 'Digital',
       image: 'assets/gallery/3.png',
-      description: 'Abstract digital composition'
+      description: ''
     },
     {
       title: 'Digital Art 4',
       category: 'Digital',
       image: 'assets/gallery/4.jpg',
-      description: 'Urban photography'
+      description: ''
     },
     {
       title: 'Digital Art 5',
       category: 'Digital',
       image: 'assets/gallery/5.png',
-      description: 'Digital illustration'
+      description: ''
     },
     {
       title: 'Digital Art 6',
       category: 'Digital',
       image: 'assets/gallery/6.png',
-      description: 'Digital artwork created using modern tools'
+      description: ''
     },
     {
       title: 'Digital Art 7',
       category: 'Digital',
       image: 'assets/gallery/7.png',
-      description: 'Digital artwork created using modern tools'
+      description: ''
     },
     {
       title: 'Digital Art 8',
       category: 'Digital',
       image: 'assets/gallery/8.png',
-      description: 'Digital artwork created using modern tools'
+      description: ''
     },
     {
       title: 'Digital Art 9',
       category: 'Digital',
       image: 'assets/gallery/9.png',
-      description: 'Digital illustration'
+      description: ''
     }
   ];
 

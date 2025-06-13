@@ -15,16 +15,16 @@ export class ResumeComponent {
     {
       degree: 'Bachelor of Science in Information System',
       school: 'Southern Luzon Technological College Foundation Inc.',
-      year: '2020 - 2024',
-      description: 'Specialized in Web Development and Software Engineering'
+      year: '2020 - 2025',
+      description: "I'm a Full Stack Web Developer who loves solving problems and learning new things. Whether working with a team or independently, I bring a positive attitude, strong attention to detail, and a passion for building clean, user-friendly web applications. I enjoy challenges that push me to grow, and I’m always looking for ways to improve not just as a developer, but as a person. My approach is grounded, collaborative, and driven by the belief that technology should make life easier and more meaningful."
     }
   ];
 
   experience = [
     {
-      position: 'Part-time Full Stack Web Developer',
+      position: 'Intern Full Stack Web Developer',
       company: 'Quanby Solutions Inc.',
-      period: '2024 - Present',
+      period: '2024 - 2025',
       responsibilities: [
         'Develop and maintain web applications using Angular and Laravel',
         'Implement responsive designs and ensure cross-browser compatibility',
@@ -44,7 +44,7 @@ export class ResumeComponent {
       ]
     },
     {
-      position: 'Web Development Intern',
+      position: 'Web Development OJT',
       company: 'Quanby Solutions Inc.',
       period: '2024',
       responsibilities: [
@@ -73,18 +73,18 @@ export class ResumeComponent {
     ]
   };
 
-  certifications = [
-    {
-      name: 'Angular Development',
-      issuer: 'Udemy',
-      date: '2023'
-    },
-    {
-      name: 'Web Development Bootcamp',
-      issuer: 'Coursera',
-      date: '2023'
-    }
-  ];
+  // certifications = [
+  //   {
+  //     name: 'Angular Development',
+  //     issuer: 'Udemy',
+  //     date: '2023'
+  //   },
+  //   {
+  //     name: 'Web Development Bootcamp',
+  //     issuer: 'Coursera',
+  //     date: '2023'
+  //   }
+  // ];
 
   async downloadPDF() {
     // Get the element

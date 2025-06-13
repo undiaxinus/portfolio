@@ -31,10 +31,10 @@ export class AboutComponent {
 
   experiences = [
     {
-      year: '2024 - Present',
-      title: 'Part-time Full Stack Web Developer',
+      year: 'October 7, 2024 - June 13, 2025',
+      title: 'Intern Full Stack Web Developer',
       company: 'Quanby Solutions Inc.',
-      description: 'Continuing to develop and maintain web applications while focusing on both frontend and backend development after successful internship completion.'
+      description: 'Developed and maintained web applications across the full stack, expanded my skills in both frontend and backend technologies, and contributed to real-world projects as part of a dynamic team.'
     },
     {
       year: '2023 - Present',
@@ -43,8 +43,8 @@ export class AboutComponent {
       description: 'Creating custom websites and web applications for various clients, specializing in modern frontend frameworks and responsive design.'
     },
     {
-      year: '2023',
-      title: 'Web Development Intern',
+      year: 'July 11, 2024 -October 3, 2024',
+      title: 'Web Development OJT',
       company: 'Quanby Solutions Inc.',
       description: 'Completed internship program working on real-world projects, gaining hands-on experience with full-stack development.'
     }

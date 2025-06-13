@@ -47,13 +47,12 @@ export class HeaderComponent implements OnInit {
   private showShortcutTooltip() {
     // Create tooltip element
     const tooltip = document.createElement('div');
-    tooltip.innerHTML = 
-      '<div style="margin-bottom:5px"><strong>Ctrl+R</strong> - View Resume</div>';
+   
     tooltip.style.position = 'fixed';
     tooltip.style.bottom = '20px';
     tooltip.style.right = '20px';
     tooltip.style.padding = '12px 15px';
-    tooltip.style.background = 'rgba(1, 85, 81, 0.9)';
+    // tooltip.style.background = 'rgba(1, 85, 81, 0.9)';
     tooltip.style.color = '#FDFBEE';
     tooltip.style.borderRadius = '6px';
     tooltip.style.zIndex = '9999';

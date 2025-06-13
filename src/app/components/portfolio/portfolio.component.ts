@@ -58,6 +58,14 @@ export class PortfolioComponent {
       demo: 'https://quanby-bms.web.app/super-admin/dashboard',
       github: 'https://github.com/undiaxinus/bpdms'
     },
+    // {
+    //   name: 'Albay Chambers Website',
+    //   description: 'A professional website for Albay Chambers built using WordPress. Features include responsive design, custom themes, content management system, and modern UI/UX.',
+    //   technologies: ['WordPress', 'PHP', 'HTML', 'CSS', 'JavaScript'],
+    //   image: 'assets/photos/albaychambers.png',
+    //   demo: 'https://albaychambers.com',
+    //   github: 'https://github.com/undiaxinus/albay-chambers'
+    // },
     {
       name: 'The Apple Peach House Platform',
       description: 'A specialized platform for The Apple Peach House featuring room reservations, event bookings, and property management. Includes features for room availability checking, online payments, guest management, and event scheduling.',

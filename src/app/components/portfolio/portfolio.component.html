@@ -35,14 +35,24 @@
 
             <!-- Links -->
             <div class="flex justify-between items-center pt-4 border-t border-[#57B4BA]/20">
-              <a [href]="project.demo" target="_blank" 
-                 class="inline-flex items-center text-[#FE4F2D] hover:text-[#57B4BA] transition-colors font-medium">
-                <span>View Live Demo</span>
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                </svg>
-              </a>
-              <a [href]="project.github" target="_blank" 
+              <ng-container *ngIf="!project.isConfidential; else confidentialProject">
+                <a [href]="project.demo" target="_blank" 
+                   class="inline-flex items-center text-[#FE4F2D] hover:text-[#57B4BA] transition-colors font-medium">
+                  <span>View Live Demo</span>
+                  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+              </ng-container>
+              <ng-template #confidentialProject>
+                <span class="inline-flex items-center text-gray-600 dark:text-gray-400 font-medium">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"></path>
+                  </svg>
+                  <span>Demo Access Restricted</span>
+                </span>
+              </ng-template>
+              <a [href]="project.github" target="_blank" *ngIf="project.github"
                  class="inline-flex items-center text-[#015551] dark:text-[#57B4BA] hover:text-[#FE4F2D] dark:hover:text-[#FE4F2D] transition-colors font-medium">
                 <span>View Code</span>
                 <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 24 24">

@@ -11,6 +11,14 @@ import { CommonModule } from '@angular/common';
 export class PortfolioComponent {
   webProjects = [
     {
+      name: 'The Marino World website',
+      description: 'Marino World is a digital platform that provides up-to-date maritime news, industry insights, and access to monthly digital magazine issues focused on the Philippine maritime sector. The website serves both general readers and industry professionals, offering features such as an online magazine viewer, article archives, and a user-friendly admin panel for content management.',
+      technologies: ['Next.js', 'Tailwind CSS', 'tsx', 'supabase', 'prisma'],
+      image: 'assets/photos/marinoworld.png',
+      demo: 'https://themarinoworld.com/dashboard'
+      // github: 'https://github.com/undiaxinus/jeepfinder'
+    },
+    {
       name: 'Sabat MO!',
       description: 'A comprehensive web and mobile application for tracking jeepney routes and locations. Built with HTML, CSS, JavaScript, PHP for web interface and MIT App Inventor for the mobile app.',
       technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MIT App Inventor'],
@@ -20,11 +28,12 @@ export class PortfolioComponent {
     },
     {
       name: 'Fidelity Bond Alert Monitoring System',
-      description: 'A comprehensive web and mobile application for monitoring and alerting fidelity bond statuses. Built with Angular for the web interface and Kotlin for the mobile application.',
+      description: '[CONFIDENTIAL PROJECT] An enterprise monitoring and alert system built with Angular and Kotlin. Due to confidentiality agreements, detailed information and demo access are restricted.',
       technologies: ['Angular', 'Kotlin', 'Supabase', 'REST API', 'Material Design'],
       image: 'assets/photos/fbus.png',
-      demo: 'https://5ca365c5.test-deployment-fbus.pages.dev/landing',
-      github: 'https://github.com/undiaxinus/fbus'
+      demo: null, // Confidential - access restricted
+      isConfidential: true,
+      // github: 'https://github.com/undiaxinus/fbus'
     },
     {
       name: '16 in 1 Tea - Herbal Tea Shop',

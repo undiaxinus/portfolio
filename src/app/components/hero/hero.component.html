@@ -14,25 +14,25 @@
         <!-- Text Content -->
         <div class="lg:col-span-7 space-y-10">
           <div class="space-y-6">
-            <div class="inline-block">
+            <div class="inline-block animate-fadeIn" style="animation-delay: 200ms">
               <span class="px-4 py-2 rounded-full bg-[#57B4BA]/20 text-[#015551] dark:bg-[#57B4BA]/30 dark:text-[#FDFBEE] text-sm font-medium">
                 Welcome to my portfolio
               </span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold text-[#015551] dark:text-[#FDFBEE] leading-tight">
+            <h1 class="text-5xl md:text-7xl font-bold text-[#015551] dark:text-[#FDFBEE] leading-tight animate-fadeIn" style="animation-delay: 400ms">
               Hi, I'm <span class="bg-gradient-to-r from-[#FE4F2D] to-[#FE4F2D]/80 text-transparent bg-clip-text">{{personalInfo.name}}</span>
             </h1>
-            <h2 class="text-2xl md:text-4xl font-semibold text-[#57B4BA] dark:text-[#57B4BA]">
+            <h2 class="text-2xl md:text-4xl font-semibold text-[#57B4BA] dark:text-[#57B4BA] animate-fadeIn" style="animation-delay: 600ms">
               {{personalInfo.title}}
             </h2>
           </div>
 
-          <p class="text-xl text-[#015551]/80 dark:text-[#FDFBEE]/80 max-w-2xl leading-relaxed">
+          <p class="text-xl text-[#015551]/80 dark:text-[#FDFBEE]/80 max-w-2xl leading-relaxed animate-fadeIn" style="animation-delay: 800ms">
             {{personalInfo.description}}
           </p>
 
           <!-- Location -->
-          <div class="flex items-center text-[#015551]/70 dark:text-[#FDFBEE]/70 bg-white/50 dark:bg-[#015551]/60 rounded-full px-4 py-2 w-fit shadow-sm backdrop-blur-sm">
+          <div class="flex items-center text-[#015551]/70 dark:text-[#FDFBEE]/70 bg-white/50 dark:bg-[#015551]/60 rounded-full px-4 py-2 w-fit shadow-sm backdrop-blur-sm animate-fadeIn hover:scale-105 transition-transform duration-300" style="animation-delay: 1000ms">
             <svg class="w-5 h-5 mr-2 text-[#FE4F2D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
                     d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
@@ -43,13 +43,13 @@
           </div>
 
           <!-- CTA Buttons -->
-          <div class="flex flex-wrap gap-6">
+          <div class="flex flex-wrap gap-6 animate-fadeIn" style="animation-delay: 1200ms">
             <a routerLink="/contact" 
                class="px-8 py-4 bg-[#FE4F2D] text-[#FDFBEE] font-semibold rounded-xl 
                       transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#FE4F2D]/20
                       flex items-center gap-2">
               <span>Get in Touch</span>
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
             </a>
@@ -59,21 +59,22 @@
                       transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#57B4BA]/20
                       flex items-center gap-2 backdrop-blur-sm">
               <span>View Projects</span>
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
             </a>
           </div>
 
           <!-- Tech Stack -->
-          <div class="space-y-4">
+          <div class="space-y-4 animate-fadeIn" style="animation-delay: 1400ms">
             <p class="text-sm font-medium text-[#015551]/70 dark:text-[#FDFBEE]/80">Tech Stack</p>
             <div class="flex flex-wrap gap-3">
-              <div *ngFor="let tech of ['Angular', 'Laravel', 'PostgreSQL', 'Arduino', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Git', 'RESTful APIs', 'Node.js', 'MySQL','Supabase','PHP','C++']"
+              <div *ngFor="let tech of ['Angular', 'Laravel', 'PostgreSQL', 'Arduino', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Git', 'RESTful APIs', 'Node.js', 'MySQL','Supabase','PHP','C++']; let i = index"
                    class="px-5 py-2.5 bg-white/50 dark:bg-[#015551]/60 rounded-xl shadow-sm border border-[#57B4BA]/20 dark:border-[#57B4BA]/40
                           text-[#015551] dark:text-[#FDFBEE] text-sm font-medium
                           transform transition duration-300 hover:scale-105 hover:shadow-md backdrop-blur-sm
-                          flex items-center gap-2">
+                          flex items-center gap-2 animate-fadeIn"
+                   [style.animation-delay]="(1600 + i * 50) + 'ms'">
                 <span class="w-2 h-2 rounded-full bg-[#FE4F2D]"></span>
                 {{tech}}
               </div>
@@ -82,7 +83,7 @@
         </div>
 
         <!-- Image -->
-        <div class="lg:col-span-5 relative">
+        <div class="lg:col-span-5 relative lg:-mt-80">
           <!-- Profile Image Container -->
           <div class="relative w-full aspect-square max-w-md mx-auto">
             <!-- Background Elements -->

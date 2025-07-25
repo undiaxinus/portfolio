@@ -13,18 +13,16 @@ export class PortfolioComponent {
     {
       name: 'The Marino World website',
       description: 'Marino World is a digital platform that provides up-to-date maritime news, industry insights, and access to monthly digital magazine issues focused on the Philippine maritime sector. The website serves both general readers and industry professionals, offering features such as an online magazine viewer, article archives, and a user-friendly admin panel for content management.',
-      technologies: ['Next.js', 'Tailwind CSS', 'tsx', 'supabase', 'prisma'],
+      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Prisma'],
       image: 'assets/photos/marinoworld.png',
       demo: 'https://themarinoworld.com/dashboard'
-      // github: 'https://github.com/undiaxinus/jeepfinder'
     },
     {
       name: 'Sabat MO!',
       description: 'A comprehensive web and mobile application for tracking jeepney routes and locations. Built with HTML, CSS, JavaScript, PHP for web interface and MIT App Inventor for the mobile app.',
       technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MIT App Inventor'],
       image: 'assets/photos/jeepfinder.png',
-      demo: 'https://peachpuff-donkey-807602.hostingersite.com',
-      github: 'https://github.com/undiaxinus/jeepfinder'
+      demo: 'https://peachpuff-donkey-807602.hostingersite.com'
     },
     {
       name: 'Fidelity Bond Alert Monitoring System',
@@ -33,23 +31,21 @@ export class PortfolioComponent {
       image: 'assets/photos/fbus.png',
       demo: null, // Confidential - access restricted
       isConfidential: true,
-      // github: 'https://github.com/undiaxinus/fbus'
     },
     {
       name: '16 in 1 Tea - Herbal Tea Shop',
       description: 'An online shop specializing in herbal tea products. Features product catalog, shopping cart, user accounts, and secure checkout.',
       technologies: ['HTML', 'JavaScript', 'PHP', 'CSS', 'MySQL'],
       image: 'assets/photos/16in1.png',
-      demo: 'https://www.16in1tea.com',
-      github: 'https://github.com/undiaxinus/16in1tea'
+      demo: 'https://www.16in1tea.com'
     },
     {
-      name: 'Pacific Blue Co-Working Space & POS System',
-      description: 'A management system for co-working spaces with integrated point of sale capabilities. Features include membership management, space booking, billing, inventory tracking, and financial reporting.',
+      name: 'Pacific Blue Co-Working Space & POS System [Internal System]',
+      description: 'A management system for co-working spaces with integrated point of sale capabilities. Features include membership management, space booking, billing, inventory tracking, and financial reporting. This system runs on a local server for internal restaurant operations only.',
       technologies: ['Bootstrap', 'HTML', 'PHP', 'MySQL', 'JavaScript'],
       image: 'assets/photos/pblue.png',
-      demo: 'https://pacific-blue.example.com',
-      github: 'https://github.com/undiaxinus/Pblue-CoWorkPOS'
+      demo: null,
+      isInternal: true
     },
     // {
     //   name: 'Portal for Grading System',
@@ -61,11 +57,11 @@ export class PortfolioComponent {
     // },
     {
       name: 'Business Permit Document Management System',
-      description: 'A comprehensive system for managing business permit applications and documents. Features request for quotation (RFQ) processing, document tracking, workflow automation, and status notifications.',
+      description: '[CONFIDENTIAL PROJECT] A comprehensive system for managing business permit applications and documents. Features request for quotation (RFQ) processing, document tracking, workflow automation, and status notifications. Due to NDA, detailed information and demo access are restricted.',
       technologies: ['Angular', 'TypeScript', 'Supabase', 'Node.js'],
       image: 'assets/photos/bpdm.png',
-      demo: 'https://quanby-bms.web.app/super-admin/dashboard',
-      github: 'https://github.com/undiaxinus/bpdms'
+      demo: null,
+      isConfidential: true
     },
     // {
     //   name: 'Albay Chambers Website',
@@ -76,20 +72,20 @@ export class PortfolioComponent {
     //   github: 'https://github.com/undiaxinus/albay-chambers'
     // },
     {
-      name: 'The Apple Peach House Platform',
-      description: 'A specialized platform for The Apple Peach House featuring room reservations, event bookings, and property management. Includes features for room availability checking, online payments, guest management, and event scheduling.',
+      name: 'The Apple Peach House Platform [Archived]',
+      description: 'A specialized platform for The Apple Peach House featuring room reservations, event bookings, and property management. Includes features for room availability checking, online payments, guest management, and event scheduling. (Project is no longer active)',
       technologies: ['PHP', 'JavaScript', 'MySQL', 'CSS'],
       image: 'assets/photos/applepeach.png',
-      demo: 'https://applepeachhouse.example.com',
-      github: 'https://github.com/undiaxinus/apple-peach-house'
+      demo: null,
+      isArchived: true
     },
     {
-      name: 'Hotel POS & Admin Dashboard',
-      description: 'Administrative backend for The Apple Peach House hotel, providing staff with tools for management. Features include point of sale system, room management, staff scheduling, inventory tracking, and financial reporting.',
+      name: 'Hotel POS & Admin Dashboard [Archived]',
+      description: 'Administrative backend for The Apple Peach House hotel, providing staff with tools for management. Features include point of sale system, room management, staff scheduling, inventory tracking, and financial reporting. (Project is no longer active)',
       technologies: ['Laravel', 'CSS', 'JavaScript', 'MySQL', 'PHP', 'jQuery', 'Bootstrap'],
       image: 'assets/photos/applepeachs.png',
-      demo: 'https://applepeachhouse-admin.example.com',
-      github: 'https://github.com/undiaxinus/apple-peach-house-admin'
+      demo: null,
+      isArchived: true
     }
   ];
 

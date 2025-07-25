@@ -1,19 +1,21 @@
 <section class="py-20 bg-[#F7F4E1] dark:bg-[#015551]">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
-    <div class="text-center mb-16">
+    <div class="text-center mb-16 animate-fadeIn">
       <h2 class="text-4xl font-bold text-[#015551] dark:text-[#FDFBEE] mb-4">My Services</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-[#57B4BA] to-[#FE4F2D] mx-auto"></div>
+      <div class="w-24 h-1 bg-gradient-to-r from-[#57B4BA] to-[#FE4F2D] mx-auto animate-scaleIn"></div>
     </div>
 
     <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div *ngFor="let service of services" 
+      <div *ngFor="let service of services; let i = index" 
            class="group bg-white/50 dark:bg-[#015551]/50 backdrop-blur-sm rounded-xl p-6
                   transform transition-all duration-300 hover:scale-105 hover:shadow-xl
-                  border border-[#57B4BA]/10 hover:border-[#57B4BA]/30">
+                  border border-[#57B4BA]/10 hover:border-[#57B4BA]/30 animate-fadeIn"
+           [style.animation-delay]="(i * 200 + 300) + 'ms'">
         <!-- Icon -->
-        <div class="w-16 h-16 mb-6 text-[#FE4F2D] group-hover:text-[#57B4BA] transition-colors"
+        <div class="w-16 h-16 mb-6 text-[#FE4F2D] group-hover:text-[#57B4BA] transition-colors animate-scaleIn"
+             [style.animation-delay]="(i * 200 + 500) + 'ms'"
              [innerHTML]="service.icon">
         </div>
 

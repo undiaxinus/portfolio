@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 })
 export class HeroComponent {
   personalInfo = {
-    name: 'Jamille B. Anonuevo',
+    name: 'Jamille B. Añonuevo',
     title: 'Full Stack Developer',
     description: 'Passionate about creating innovative web solutions and turning ideas into reality.',
     location: 'Sto. Domingo, Albay, Philippines',

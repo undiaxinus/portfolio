@@ -15,7 +15,7 @@ export class ResumeComponent {
     {
       degree: 'Bachelor of Science in Information System',
       school: 'Southern Luzon Technological College Foundation Inc.',
-      year: '2020 - 2025',
+      year: '2021 - 2025',
       description: "I'm a Full Stack Web Developer who loves solving problems and learning new things. Whether working with a team or independently, I bring a positive attitude, strong attention to detail, and a passion for building clean, user-friendly web applications. I enjoy challenges that push me to grow, and I’m always looking for ways to improve not just as a developer, but as a person. My approach is grounded, collaborative, and driven by the belief that technology should make life easier and more meaningful."
     }
   ];
@@ -56,20 +56,28 @@ export class ResumeComponent {
     }
   ];
 
+  achievements = [
+    'Cum Laude – BS in Information Systems',
+    'Service Awardee',
+    'Proficiency in Computer Programming & Web Development',
+    'Best in Capstone Project – Real-Time Jeepney Locator & Passenger Monitoring System'
+  ];
+
   skills = {
     technical: [
-      'Angular', 'TypeScript', 'JavaScript', 'PHP/Laravel',
-      'HTML5/CSS3', 'Node.js', 'PostgreSQL/MySQL',
-      'Git/GitHub', 'Responsive Design',
-      'C++', 'Arduino'
+      'PHP', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'SQL',
+      'C++', 'Python', 'Angular', 'Tailwind CSS', 'Bootstrap',
+      'Next.js', 'Laravel', 'Node.js', 'Git', 'Responsive Design'
     ],
     tools: [
-      'VS Code', 'Figma', 'Arduino IDE', 'Shapr3D'
+      'Visual Studio Code', 'Supabase', 'Figma', 'Arduino IDE', 'Shapr3D'
+    ],
+    databases: [
+      'MySQL', 'PostgreSQL', 'WordPress', 'Firebase'
     ],
     soft: [
-      'Problem Solving', 'Team Collaboration',
-      'Time Management', 'Communication',
-      'Adaptability', 'Quick Learning'
+      'Problem-solving', 'Team Collaboration', 'Time Management',
+      'Adaptability', 'Willingness to Learn', 'Prompt Engineering for Code Generation'
     ]
   };
 

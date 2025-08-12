@@ -25,7 +25,7 @@
           Building Modern Web Solutions
         </h3>
         <p class="text-lg text-[#015551]/80 dark:text-[#FDFBEE]/80 mb-6 leading-relaxed">
-          I recently graduated with a Bachelor of Science in Information System and earned honors as a cum laude. With hands-on experience in both freelance and professional settings, I consider myself a Full Stack Web Developer. I enjoy building responsive and user-friendly websites, and I'm passionate about creating practical and reliable web solutions that meet real-world needs.        </p>
+         Recent Bachelor of Science in Information Systems graduate, awarded Cum Laude. Experienced in developing responsive, user-friendly, and secure web applications in both freelance and professional settings. Adept at frontend and backend development, database integration, and optimizing application performance. Skilled in leveraging AI-assisted development tools such as GitHub Copilot, ChatGPT, and Cursor to accelerate prototyping, debugging, and code optimization. Passionate about delivering innovative and practical solutions to real-world problems through clean, maintainable code. Committed to continuous learning and staying up-to-date with the latest technologies and industry trends. </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="bg-white/70 dark:bg-[#015551]/80 p-6 rounded-lg shadow-md backdrop-blur-sm border border-[#57B4BA]/10 hover:border-[#57B4BA] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl animate-fadeIn"
                style="animation-delay: 600ms">
@@ -52,34 +52,72 @@
 
     <!-- Skills Section -->
     <div class="mb-20">
-      <h3 class="text-3xl font-bold text-center text-[#015551] dark:text-[#FDFBEE] mb-12 animate-fadeIn" style="animation-delay: 1000ms">My Skills</h3>
+      <h3 class="text-3xl font-bold text-center text-[#015551] dark:text-[#FDFBEE] mb-12 animate-fadeIn" style="animation-delay: 1000ms">Technical Skills</h3>
       
-      <!-- Development Skills -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div *ngFor="let skill of skills.development; let i = index" 
-             class="group bg-white/70 dark:bg-[#015551]/80 p-6 rounded-lg shadow-md backdrop-blur-sm border border-[#57B4BA]/10 hover:border-[#57B4BA] transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl animate-fadeIn"
-             [style.animation-delay]="(i * 100 + 1200) + 'ms'">
-          <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 mb-4 rounded-full bg-gradient-to-r from-[#57B4BA] to-[#FE4F2D] flex items-center justify-center p-3 group-hover:scale-110 transition-transform duration-300 animate-scaleIn"
-                 [style.animation-delay]="(i * 100 + 1400) + 'ms'">
-              <div [innerHTML]="skill.svg | safeHtml" class="w-full h-full group-hover:rotate-12 transition-transform duration-300"></div>
+      <!-- Languages -->
+      <div class="mb-12">
+        <h4 class="text-2xl font-semibold text-[#015551] dark:text-[#FDFBEE] mb-6 text-center">Programming Languages</h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+          <div *ngFor="let skill of skills.languages; let i = index" 
+               class="group bg-white/70 dark:bg-[#015551]/80 p-4 rounded-lg shadow-md backdrop-blur-sm border border-[#57B4BA]/10 hover:border-[#57B4BA] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl animate-fadeIn"
+               [style.animation-delay]="(i * 50 + 1200) + 'ms'">
+            <div class="text-center">
+              <h5 class="text-sm font-semibold text-[#015551] dark:text-[#FDFBEE]">{{skill}}</h5>
             </div>
-            <h4 class="text-lg font-semibold text-[#015551] dark:text-[#FDFBEE] group-hover:text-[#57B4BA] transition-colors duration-300">{{skill.name}}</h4>
           </div>
         </div>
       </div>
 
-      <!-- Artistic Skills -->
-      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div *ngFor="let skill of skills.design; let i = index" 
-             class="group bg-white/70 dark:bg-[#015551]/80 p-6 rounded-lg shadow-md backdrop-blur-sm border border-[#57B4BA]/10 hover:border-[#FE4F2D] transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl animate-fadeIn"
-             [style.animation-delay]="(i * 100 + 2000) + 'ms'">
-          <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 mb-4 rounded-full bg-gradient-to-r from-[#FE4F2D] to-[#57B4BA] flex items-center justify-center p-3 group-hover:scale-110 transition-transform duration-300 animate-scaleIn"
-                 [style.animation-delay]="(i * 100 + 2200) + 'ms'">
-              <div [innerHTML]="skill.svg | safeHtml" class="w-full h-full group-hover:rotate-12 transition-transform duration-300"></div>
+      <!-- Frameworks -->
+      <div class="mb-12">
+        <h4 class="text-2xl font-semibold text-[#015551] dark:text-[#FDFBEE] mb-6 text-center">Frameworks & Libraries</h4>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div *ngFor="let skill of skills.frameworks; let i = index" 
+               class="group bg-white/70 dark:bg-[#015551]/80 p-4 rounded-lg shadow-md backdrop-blur-sm border border-[#57B4BA]/10 hover:border-[#FE4F2D] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl animate-fadeIn"
+               [style.animation-delay]="(i * 50 + 1600) + 'ms'">
+            <div class="text-center">
+              <h5 class="text-sm font-semibold text-[#015551] dark:text-[#FDFBEE]">{{skill}}</h5>
             </div>
-            <h4 class="text-lg font-semibold text-[#015551] dark:text-[#FDFBEE] group-hover:text-[#FE4F2D] transition-colors duration-300">{{skill.name}}</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="mb-12">
+        <h4 class="text-2xl font-semibold text-[#015551] dark:text-[#FDFBEE] mb-6 text-center">Tools & Technologies</h4>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div *ngFor="let skill of skills.tools; let i = index" 
+               class="group bg-white/70 dark:bg-[#015551]/80 p-4 rounded-lg shadow-md backdrop-blur-sm border border-[#57B4BA]/10 hover:border-[#57B4BA] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl animate-fadeIn"
+               [style.animation-delay]="(i * 50 + 2000) + 'ms'">
+            <div class="text-center">
+              <h5 class="text-sm font-semibold text-[#015551] dark:text-[#FDFBEE]">{{skill}}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Databases -->
+      <div class="mb-12">
+        <h4 class="text-2xl font-semibold text-[#015551] dark:text-[#FDFBEE] mb-6 text-center">Databases & Platforms</h4>
+        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div *ngFor="let skill of skills.databases; let i = index" 
+               class="group bg-white/70 dark:bg-[#015551]/80 p-4 rounded-lg shadow-md backdrop-blur-sm border border-[#57B4BA]/10 hover:border-[#FE4F2D] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl animate-fadeIn"
+               [style.animation-delay]="(i * 50 + 2400) + 'ms'">
+            <div class="text-center">
+              <h5 class="text-sm font-semibold text-[#015551] dark:text-[#FDFBEE]">{{skill}}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="mb-12">
+        <h4 class="text-2xl font-semibold text-[#015551] dark:text-[#FDFBEE] mb-6 text-center">Soft Skills</h4>
+        <div class="flex flex-wrap justify-center gap-3">
+          <div *ngFor="let skill of skills.softSkills; let i = index" 
+               class="bg-gradient-to-r from-[#57B4BA] to-[#FE4F2D] text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 animate-fadeIn"
+               [style.animation-delay]="(i * 50 + 2800) + 'ms'">
+            {{skill}}
           </div>
         </div>
       </div>

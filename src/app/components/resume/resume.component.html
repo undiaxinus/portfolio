@@ -17,6 +17,33 @@
 
     <!-- Resume Content -->
     <div id="resume-content" class="bg-[#FDFBEE]/70 dark:bg-[#01423F] rounded-lg shadow-xl p-8 backdrop-blur-sm border border-[#57B4BA]/20">
+      <!-- Personal Information Header -->
+      <div class="text-center mb-12 pb-8 border-b border-[#57B4BA]/20">
+        <h1 class="text-4xl font-bold text-[#015551] dark:text-[#FDFBEE] mb-2">Jamille B. Añonuevo</h1>
+        <h2 class="text-xl text-[#57B4BA] dark:text-[#57B4BA] mb-4">Full Stack Web Developer</h2>
+        <div class="flex flex-wrap justify-center gap-4 text-[#015551]/70 dark:text-[#FDFBEE]/70">
+          <div class="flex items-center">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            anonuevojamille&#64;gmail.com
+          </div>
+          <div class="flex items-center">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9"/>
+            </svg>
+            https://hcktips-389f6.web.app
+          </div>
+          <div class="flex items-center">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            P1, Fidel Surtida, Sto. Domingo, Albay
+          </div>
+        </div>
+      </div>
+      
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <!-- Left Column -->
         <div class="lg:col-span-2 space-y-12">
@@ -38,6 +65,27 @@
                 <p class="text-[#015551]/70 dark:text-[#FDFBEE]/70 mb-2">{{edu.year}}</p>
                 <p class="text-[#015551]/70 dark:text-[#FDFBEE]/70">{{edu.description}}</p>
               </div>
+            </div>
+          </div>
+
+          <!-- Achievements -->
+          <div>
+            <h3 class="text-2xl font-bold text-[#015551] dark:text-[#FDFBEE] mb-6 flex items-center">
+              <svg class="w-6 h-6 mr-2 text-[#FE4F2D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+              </svg>
+              Achievements
+            </h3>
+            <div class="bg-white/70 dark:bg-[#015551]/80 rounded-lg p-6 shadow-md backdrop-blur-sm border border-[#57B4BA]/10">
+              <ul class="space-y-3">
+                <li *ngFor="let achievement of achievements" 
+                    class="flex items-start text-[#015551]/70 dark:text-[#FDFBEE]/70">
+                  <svg class="w-5 h-5 mr-3 mt-0.5 text-[#FE4F2D] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {{achievement}}
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -95,6 +143,17 @@
                 <span *ngFor="let tool of skills.tools"
                       class="px-3 py-1 bg-[#FE4F2D]/10 dark:bg-[#FE4F2D]/30 text-[#FE4F2D] dark:text-[#FDFBEE] rounded-full text-sm border border-[#FE4F2D]/20">
                   {{tool}}
+                </span>
+              </div>
+            </div>
+
+            <!-- Databases -->
+            <div class="bg-white/70 dark:bg-[#015551]/80 rounded-lg p-6 shadow-md backdrop-blur-sm mb-6 border border-[#57B4BA]/10">
+              <h4 class="text-lg font-semibold text-[#015551] dark:text-[#FDFBEE] mb-4">Databases & Platforms</h4>
+              <div class="flex flex-wrap gap-2">
+                <span *ngFor="let database of skills.databases"
+                      class="px-3 py-1 bg-green-100/50 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-full text-sm border border-green-200/50 dark:border-green-700/50">
+                  {{database}}
                 </span>
               </div>
             </div>

@@ -117,12 +117,14 @@ export class AdminComponent implements OnInit, OnDestroy, AfterViewInit {
   toggleMap(): void {
     this.showMap = !this.showMap;
     
-    if (this.showMap && !this.mapInitialized) {
-      // Wait for DOM to update before initializing map
-      setTimeout(() => {
-        this.initializeMap();
-      }, 100);
-    } else if (!this.showMap) {
+    if (this.showMap) {
+      if (!this.mapInitialized) {
+        // Wait for DOM to update before initializing map
+        setTimeout(() => {
+          this.initializeMap();
+        }, 100);
+      }
+    } else {
       this.mapService.destroyMap();
       this.mapInitialized = false;
     }

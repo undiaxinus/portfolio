@@ -24,7 +24,7 @@
         <h3 class="text-3xl font-bold text-[#015551] dark:text-[#FDFBEE] mb-6">
           Building Modern Web Solutions
         </h3>
-        <p class="text-lg text-[#015551]/80 dark:text-[#FDFBEE]/80 mb-6 leading-relaxed">
+        <p class="text-lg text-[#015551]/80 dark:text-[#FDFBEE]/80 mb-6 leading-relaxed text-justify hyphens-auto">
          Recent Bachelor of Science in Information Systems graduate, awarded Cum Laude. Experienced in developing responsive, user-friendly, and secure web applications in both freelance and professional settings. Adept at frontend and backend development, database integration, and optimizing application performance. Skilled in leveraging AI-assisted development tools such as GitHub Copilot, ChatGPT, and Cursor to accelerate prototyping, debugging, and code optimization. Passionate about delivering innovative and practical solutions to real-world problems through clean, maintainable code. Committed to continuous learning and staying up-to-date with the latest technologies and industry trends. </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="bg-white/70 dark:bg-[#015551]/80 p-6 rounded-lg shadow-md backdrop-blur-sm border border-[#57B4BA]/10 hover:border-[#57B4BA] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl animate-fadeIn"
@@ -133,10 +133,26 @@
           <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gradient-to-r from-[#57B4BA] to-[#FE4F2D] animate-scaleIn"
                [style.animation-delay]="(i * 200 + 2800) + 'ms'"></div>
           <div class="bg-white/70 dark:bg-[#015551]/80 p-6 rounded-lg shadow-md backdrop-blur-sm border border-[#57B4BA]/10 hover:border-[#57B4BA] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
-            <span class="text-sm text-[#FE4F2D] dark:text-[#FE4F2D] font-semibold">{{exp.year}}</span>
-            <h4 class="text-xl font-bold text-[#015551] dark:text-[#FDFBEE] mt-2 group-hover:text-[#57B4BA] transition-colors duration-300">{{exp.title}}</h4>
-            <p class="text-[#57B4BA] dark:text-[#57B4BA] mt-1">{{exp.company}}</p>
-            <p class="text-[#015551]/70 dark:text-[#FDFBEE]/70 mt-3">{{exp.description}}</p>
+            <div class="flex items-start gap-6">
+              <!-- Experience Image -->
+              <div class="flex-shrink-0">
+                <div class="w-20 h-20 rounded-lg bg-gradient-to-r from-[#57B4BA]/10 to-[#FE4F2D]/10 p-3 group-hover:from-[#57B4BA]/20 group-hover:to-[#FE4F2D]/20 transition-all duration-300 flex items-center justify-center">
+                  <img [src]="exp.image" [alt]="exp.company + ' logo'" 
+                       class="w-full h-full object-contain filter group-hover:brightness-110 transition-all duration-300"
+                       onerror="this.style.display='none'">
+                </div>
+              </div>
+              
+              <!-- Experience Content -->
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                  <span class="text-sm text-[#FE4F2D] dark:text-[#FE4F2D] font-semibold bg-[#FE4F2D]/10 px-3 py-1 rounded-full inline-block w-fit">{{exp.year}}</span>
+                </div>
+                <h4 class="text-xl font-bold text-[#015551] dark:text-[#FDFBEE] mb-1 group-hover:text-[#57B4BA] transition-colors duration-300">{{exp.title}}</h4>
+                <p class="text-[#57B4BA] dark:text-[#57B4BA] font-medium mb-3">{{exp.company}}</p>
+                <p class="text-[#015551]/70 dark:text-[#FDFBEE]/70 leading-relaxed text-justify hyphens-auto">{{exp.description}}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -145,22 +161,62 @@
     <!-- Certificates & Awards Section -->
     <div class="mt-16 animate-fadeIn" style="animation-delay: 3000ms">
       <h3 class="text-3xl font-bold text-center text-[#015551] dark:text-[#FDFBEE] mb-8">Certificates & Awards</h3>
-      <div class="transform transition-transform duration-300 hover:scale-[1.02]">
-      <div style="position: relative; width: 100%; height: 0; padding-top: 70.7071%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
-          <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" 
-                  src="https://www.canva.com/design/DAGKcFBZ7pE/oEY8gpNarTYkki9xPFjESA/view?embed" 
-                  allowfullscreen="allowfullscreen" 
-                  allow="fullscreen"></iframe>
-      </div>
-      <div class="text-center">
-          <a href="https://www.canva.com/design/DAGKcFBZ7pE/oEY8gpNarTYkki9xPFjESA/view?utm_content=DAGKcFBZ7pE&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" 
-             target="_blank" 
-             rel="noopener" 
-             class="text-[#57B4BA] underline hover:text-[#FE4F2D] transition-colors duration-300">Design</a> by Jamille Añonuevo
-        </div>
+      <div class="text-center mb-8">
+        <button (click)="openCertificateModal()" 
+                class="bg-gradient-to-r from-[#57B4BA] to-[#FE4F2D] text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+          <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          View My Certificates
+        </button>
       </div>
     </div>
     <!-- End Certificates & Awards Section -->
+  </div>
+
+  <!-- Certificate Modal -->
+  <div *ngIf="showCertificateModal" 
+       class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+       (click)="closeCertificateModal()">
+    <div class="bg-white dark:bg-[#015551] rounded-lg shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden"
+         (click)="$event.stopPropagation()">
+      <!-- Modal Header -->
+      <div class="flex justify-between items-center p-6 border-b border-[#57B4BA]/20">
+        <h3 class="text-2xl font-bold text-[#015551] dark:text-[#FDFBEE]">My Certificates & Awards</h3>
+        <button (click)="closeCertificateModal()" 
+                class="text-[#015551] dark:text-[#FDFBEE] hover:text-[#FE4F2D] transition-colors duration-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Modal Content -->
+      <div class="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+        <div class="transform transition-transform duration-300">
+          <div style="position: relative; width: 100%; height: 0; padding-top: 70.7071%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-bottom: 1em; overflow: hidden; border-radius: 8px; will-change: transform;">
+            <iframe loading="lazy" 
+                    style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;" 
+                    src="https://www.canva.com/design/DAGKcFBZ7pE/oEY8gpNarTYkki9xPFjESA/view?embed" 
+                    allowfullscreen="allowfullscreen" 
+                    allow="fullscreen">
+            </iframe>
+          </div>
+          <div class="text-center">
+            <a href="https://www.canva.com/design/DAGKcFBZ7pE/oEY8gpNarTYkki9xPFjESA/view?utm_content=DAGKcFBZ7pE&utm_campaign=designshare&utm_medium=embeds&utm_source=link" 
+               target="_blank" 
+               rel="noopener" 
+               class="text-[#57B4BA] underline hover:text-[#FE4F2D] transition-colors duration-300 inline-flex items-center">
+              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+              View Full Design
+            </a>
+            <p class="text-[#015551]/70 dark:text-[#FDFBEE]/70 mt-2">Design by Jamille Añonuevo</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
   

@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ import { NgIf } from '@angular/common';
 export class HeaderComponent implements OnInit {
   isMenuOpen = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private themeService: ThemeService) {}
 
   ngOnInit() {
     // Add a tooltip notification to inform users about the shortcuts
@@ -24,7 +25,7 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleDarkMode() {
-    document.documentElement.classList.toggle('dark');
+    this.themeService.toggleTheme();
   }
 
   // Handle keyboard shortcuts

@@ -1,29 +1,23 @@
-import { Component, Pipe, PipeTransform } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { using } from 'rxjs';
 
-@Pipe({
-  name: 'safeHtml',
-  standalone: true
-})
-export class SafeHtmlPipe implements PipeTransform {
-  constructor(private sanitizer: DomSanitizer) {}
-
-  transform(value: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(value);
-  }
+interface Experience {
+  year: string;
+  title: string;
+  company: string;
+  description: string;
+  image: string;
 }
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, SafeHtmlPipe],
+  imports: [CommonModule],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
 export class AboutComponent {
-  constructor(private sanitizer: DomSanitizer) {}
+  showCertificateModal = false;
 
   skills = {
     languages: ['PHP', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'SQL', 'C++', 'Python'],
@@ -40,18 +34,32 @@ export class AboutComponent {
     ]
   };
 
-  experiences = [
+  experiences: Experience[] = [
     {
       year: '2023 - Present',
       title: 'Freelance Web Developer',
       company: 'Self-Employed',
-      description: 'Designed and developed responsive websites for various clients on a per-project basis. Built full-stack applications using Angular, PHP, Tailwind CSS, and Supabase. Managed both frontend and backend development, database integration, and optimization. Leveraged AI-assisted coding tools to reduce development time by up to 30% while maintaining clean and efficient code.'
+      description: 'Designed and developed responsive websites for various clients on a per-project basis. Built full-stack applications using Angular, PHP, Tailwind CSS, and Supabase. Managed both frontend and backend development, database integration, and optimization. Leveraged AI-assisted coding tools to reduce development time by up to 30% while maintaining clean and efficient code.',
+      image: '../../assets/freelance-icon.svg'
     },
     {
       year: 'Jul 2024 – Jun 2025',
       title: 'Full Stack Web Developer (OJT & Internship) ',
       company: 'Quanby Solutions Inc.',
-      description: '•	Developed and maintained web applications using Angular, Supabase, and modern tech stacks. Implemented responsive UI designs ensuring cross-browser compatibility. Collaborated using Git for version control and participated in code reviews. Optimized database queries, improving efficiency and load performance.'
+      description: '•	Developed and maintained web applications using Angular, Supabase, and modern tech stacks. Implemented responsive UI designs ensuring cross-browser compatibility. Collaborated using Git for version control and participated in code reviews. Optimized database queries, improving efficiency and load performance.',
+      image: '../../assets/quanby-icon.svg'
     }
   ];
+
+  openCertificateModal(): void {
+    this.showCertificateModal = true;
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeCertificateModal(): void {
+    this.showCertificateModal = false;
+    // Restore body scroll when modal is closed
+    document.body.style.overflow = 'auto';
+  }
 }

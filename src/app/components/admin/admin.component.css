@@ -1,0 +1,24 @@
+/* Essential styles only */
+.admin-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+:host-context(.dark) .admin-container {
+  background-color: #111827;
+}
+
+.modal-backdrop {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .table-hide-mobile {
+    display: none;
+  }
+}

@@ -8,11 +8,19 @@ declare module '@supabase/supabase-js';
 export interface VisitorRecord {
   id?: number;
   ip: string;
+  local_ip?: string;
   country_name: string;
   region_name: string;
   city: string;
   latitude: number;
   longitude: number;
+  gps_latitude?: number;
+  gps_longitude?: number;
+  gps_country?: string;
+  gps_region?: string;
+  gps_city?: string;
+  gps_address?: string;
+  location_source?: 'ip' | 'gps' | 'both';
   timezone: string;
   user_agent: string;
   timestamp: string;
@@ -42,11 +50,19 @@ export class SupabaseService {
         .insert([
           {
             ip: visitorData.ip,
+            local_ip: visitorData.local_ip,
             country_name: visitorData.country_name,
             region_name: visitorData.region_name,
             city: visitorData.city,
             latitude: visitorData.latitude,
             longitude: visitorData.longitude,
+            gps_latitude: visitorData.gps_latitude,
+            gps_longitude: visitorData.gps_longitude,
+            gps_country: visitorData.gps_country,
+            gps_region: visitorData.gps_region,
+            gps_city: visitorData.gps_city,
+            gps_address: visitorData.gps_address,
+            location_source: visitorData.location_source,
             timezone: visitorData.timezone,
             user_agent: visitorData.user_agent,
             timestamp: visitorData.timestamp
@@ -88,18 +104,16 @@ export class SupabaseService {
     }
   }
 
-  /**
-   * Check if visitor with same IP visited recently (within 1 hour)
+    /**
+   * Check if visitor with same IP has already visited (prevents duplicate IPs)
    */
   async hasRecentVisit(ip: string): Promise<boolean> {
     try {
-      const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
-      
+      // Check if this IP address already exists in the database
       const { data, error } = await this.supabase
         .from('visitors')
         .select('id')
         .eq('ip', ip)
-        .gte('created_at', oneHourAgo)
         .limit(1);
 
       if (error) {
@@ -107,6 +121,7 @@ export class SupabaseService {
         return false;
       }
 
+      // Return true if IP already exists (preventing duplicates)
       return (data && data.length > 0);
     } catch (error) {
       console.error('Error in hasRecentVisit:', error);

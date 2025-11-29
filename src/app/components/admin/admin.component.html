@@ -237,8 +237,21 @@
             <p [ngClass]="isDarkMode ? 'text-white' : 'text-gray-900'" class="mt-1 text-sm">{{ selectedVisitor.ip }}</p>
           </div>
           <div>
-            <label [ngClass]="isDarkMode ? 'text-gray-300' : 'text-gray-700'" class="block text-sm font-medium">Coordinates</label>
+            <label [ngClass]="isDarkMode ? 'text-gray-300' : 'text-gray-700'" class="block text-sm font-medium">IP Coordinates</label>
             <p [ngClass]="isDarkMode ? 'text-white' : 'text-gray-900'" class="mt-1 text-sm">{{ selectedVisitor.latitude }}, {{ selectedVisitor.longitude }}</p>
+          </div>
+          <div *ngIf="selectedVisitor.gps_latitude && selectedVisitor.gps_longitude">
+            <label [ngClass]="isDarkMode ? 'text-gray-300' : 'text-gray-700'" class="block text-sm font-medium">📍 GPS Coordinates</label>
+            <p [ngClass]="isDarkMode ? 'text-white' : 'text-gray-900'" class="mt-1 text-sm">{{ selectedVisitor.gps_latitude }}, {{ selectedVisitor.gps_longitude }}</p>
+          </div>
+          <div>
+            <label [ngClass]="isDarkMode ? 'text-gray-300' : 'text-gray-700'" class="block text-sm font-medium">Location Source</label>
+            <p [ngClass]="isDarkMode ? 'text-white' : 'text-gray-900'" class="mt-1 text-sm">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium" 
+                    [ngClass]="getLocationSourceBadgeClass(selectedVisitor.location_source)">
+                {{ getLocationSourceText(selectedVisitor.location_source) }}
+              </span>
+            </p>
           </div>
           <div>
             <label [ngClass]="isDarkMode ? 'text-gray-300' : 'text-gray-700'" class="block text-sm font-medium">Timezone</label>

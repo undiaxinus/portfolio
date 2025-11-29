@@ -55,18 +55,39 @@ export class MapService {
 
     // Filter visitors with valid coordinates
     const validVisitors = visitors.filter(visitor => 
-      visitor.latitude !== 0 && visitor.longitude !== 0 &&
-      visitor.latitude && visitor.longitude
+      (visitor.latitude !== 0 && visitor.longitude !== 0 && visitor.latitude && visitor.longitude) ||
+      (visitor.gps_latitude !== undefined && visitor.gps_longitude !== undefined && 
+       visitor.gps_latitude !== 0 && visitor.gps_longitude !== 0)
     );
 
     if (validVisitors.length === 0) return;
 
     // Create markers for each visitor
     validVisitors.forEach(visitor => {
-      const marker = this.createVisitorMarker(visitor);
-      if (marker) {
-        this.markers.push(marker);
-        marker.addTo(this.map!);
+      // Create IP-based marker if available
+      if (visitor.latitude && visitor.longitude && visitor.latitude !== 0 && visitor.longitude !== 0) {
+        const ipMarker = this.createVisitorMarker(visitor, 'ip');
+        if (ipMarker) {
+          this.markers.push(ipMarker);
+          ipMarker.addTo(this.map!);
+        }
+      }
+
+      // Create GPS-based marker if available
+      if (visitor.gps_latitude && visitor.gps_longitude && 
+          visitor.gps_latitude !== 0 && visitor.gps_longitude !== 0) {
+        const gpsMarker = this.createVisitorMarker(visitor, 'gps');
+        if (gpsMarker) {
+          this.markers.push(gpsMarker);
+          gpsMarker.addTo(this.map!);
+        }
+      }
+
+      // Create connection line if both IP and GPS coordinates are available
+      if (visitor.latitude && visitor.longitude && visitor.latitude !== 0 && visitor.longitude !== 0 &&
+          visitor.gps_latitude && visitor.gps_longitude && 
+          visitor.gps_latitude !== 0 && visitor.gps_longitude !== 0) {
+        this.createConnectionLine(visitor);
       }
     });
 
@@ -80,16 +101,26 @@ export class MapService {
   /**
    * Create a marker for a visitor
    */
-  private createVisitorMarker(visitor: VisitorData): L.Marker | null {
-    if (!visitor.latitude || !visitor.longitude) return null;
-
-    // Create custom icon based on country
-    const icon = this.createCountryIcon(visitor.country);
+  private createVisitorMarker(visitor: VisitorData, locationType: 'ip' | 'gps' = 'ip'): L.Marker | null {
+    let lat: number, lng: number;
     
-    const marker = L.marker([visitor.latitude, visitor.longitude], { icon });
+    if (locationType === 'gps') {
+      if (!visitor.gps_latitude || !visitor.gps_longitude) return null;
+      lat = visitor.gps_latitude;
+      lng = visitor.gps_longitude;
+    } else {
+      if (!visitor.latitude || !visitor.longitude) return null;
+      lat = visitor.latitude;
+      lng = visitor.longitude;
+    }
+
+    // Create custom icon based on country and location type
+    const icon = this.createLocationIcon(visitor.country, locationType);
+    
+    const marker = L.marker([lat, lng], { icon });
 
     // Create popup content
-    const popupContent = this.createPopupContent(visitor);
+    const popupContent = this.createPopupContent(visitor, locationType);
     marker.bindPopup(popupContent, {
       maxWidth: 300,
       className: 'visitor-popup'
@@ -99,7 +130,36 @@ export class MapService {
   }
 
   /**
-   * Create custom icon for country
+   * Create connection line between IP and GPS coordinates
+   */
+  private createConnectionLine(visitor: VisitorData): void {
+    if (!this.map || !visitor.latitude || !visitor.longitude || 
+        !visitor.gps_latitude || !visitor.gps_longitude) return;
+
+    const ipCoords: [number, number] = [visitor.latitude, visitor.longitude];
+    const gpsCoords: [number, number] = [visitor.gps_latitude, visitor.gps_longitude];
+
+    // Create a polyline connecting IP and GPS locations
+    const connectionLine = L.polyline([ipCoords, gpsCoords], {
+      color: this.currentTheme === 'dark' ? '#60A5FA' : '#3B82F6',
+      weight: 2,
+      opacity: 0.7,
+      dashArray: '5, 10'
+    });
+
+    connectionLine.addTo(this.map);
+    this.markers.push(connectionLine as any); // Add to markers for cleanup
+  }
+
+  /**
+   * Create custom icon for country and location type
+   */
+  private createLocationIcon(country: string, locationType: 'ip' | 'gps'): L.DivIcon {
+    return locationType === 'gps' ? this.createGPSIcon(country) : this.createCountryIcon(country);
+  }
+
+  /**
+   * Create custom icon for country (IP-based location)
    */
   private createCountryIcon(country: string): L.DivIcon {
     const countryColors: { [key: string]: string } = {
@@ -126,7 +186,7 @@ export class MapService {
     const shadowColor = this.currentTheme === 'dark' ? 'rgba(0,0,0,0.6)' : 'rgba(0,0,0,0.3)';
 
     return L.divIcon({
-      className: 'custom-marker',
+      className: 'custom-marker ip-marker',
       html: `
         <div style="
           background-color: ${color};
@@ -153,12 +213,58 @@ export class MapService {
   }
 
   /**
+   * Create custom GPS icon
+   */
+  private createGPSIcon(country: string): L.DivIcon {
+    const borderColor = this.currentTheme === 'dark' ? '#374151' : 'white';
+    const shadowColor = this.currentTheme === 'dark' ? 'rgba(0,0,0,0.6)' : 'rgba(0,0,0,0.3)';
+    const gpsColor = '#10B981'; // Green color for GPS
+
+    return L.divIcon({
+      className: 'custom-marker gps-marker',
+      html: `
+        <div style="
+          background-color: ${gpsColor};
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          border: 3px solid ${borderColor};
+          box-shadow: 0 3px 6px ${shadowColor};
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 11px;
+          color: white;
+          font-weight: bold;
+          transition: all 0.3s ease;
+        ">
+          📍
+        </div>
+      `,
+      iconSize: [28, 28],
+      iconAnchor: [14, 14],
+      popupAnchor: [0, -14]
+    });
+  }
+
+  /**
    * Create popup content for visitor
    */
-  private createPopupContent(visitor: VisitorData): string {
-    const locationParts = [visitor.city, visitor.region, visitor.country]
-      .filter(part => part && part !== 'Unknown');
-    const location = locationParts.join(', ') || 'Unknown Location';
+  private createPopupContent(visitor: VisitorData, locationType: 'ip' | 'gps' = 'ip'): string {
+    // Use GPS address data if available, otherwise fall back to IP location data
+    let location = '';
+    if (locationType === 'gps' && (visitor as any).gps_address) {
+      location = (visitor as any).gps_address;
+    } else if (locationType === 'gps' && ((visitor as any).gps_city || (visitor as any).gps_region || (visitor as any).gps_country)) {
+      const gpsCity = (visitor as any).gps_city || 'Unknown';
+      const gpsRegion = (visitor as any).gps_region || 'Unknown';
+      const gpsCountry = (visitor as any).gps_country || 'Unknown';
+      location = `${gpsCity}, ${gpsRegion}, ${gpsCountry}`;
+    } else {
+      const locationParts = [visitor.city, visitor.region, visitor.country]
+        .filter(part => part && part !== 'Unknown');
+      location = locationParts.join(', ') || 'Unknown Location';
+    }
     
     const timeAgo = this.getTimeAgo(visitor.timestamp);
     const formattedTime = new Date(visitor.timestamp).toLocaleString();
@@ -170,10 +276,22 @@ export class MapService {
     const subtleColor = isDark ? '#9ca3af' : '#95a5a6';
     const bgColor = isDark ? '#374151' : '#ffffff';
 
+    // Get coordinates based on location type
+    const lat = locationType === 'gps' ? visitor.gps_latitude : visitor.latitude;
+    const lng = locationType === 'gps' ? visitor.gps_longitude : visitor.longitude;
+    const locationTypeLabel = locationType === 'gps' ? 'GPS Location' : 'IP Location';
+    const locationIcon = locationType === 'gps' ? '📍' : this.getCountryFlag(visitor.country);
+
     return `
       <div class="visitor-popup-content" style="background-color: ${bgColor}; border-radius: 8px; padding: 12px;">
         <div style="font-weight: bold; margin-bottom: 8px; color: ${titleColor}; font-size: 14px;">
-          ${this.getCountryFlag(visitor.country)} ${location}
+          ${locationIcon} ${location}
+        </div>
+        <div style="font-size: 12px; color: ${textColor}; margin-bottom: 4px;">
+          <strong>Type:</strong> ${locationTypeLabel}
+        </div>
+        <div style="font-size: 12px; color: ${textColor}; margin-bottom: 4px;">
+          <strong>Coordinates:</strong> ${lat?.toFixed(4)}, ${lng?.toFixed(4)}
         </div>
         <div style="font-size: 12px; color: ${textColor}; margin-bottom: 4px;">
           <strong>IP:</strong> ${visitor.ip}

@@ -40,14 +40,14 @@ export class AboutComponent {
       title: 'Freelance Web Developer',
       company: 'Self-Employed',
       description: 'Designed and developed responsive websites for various clients on a per-project basis. Built full-stack applications using Angular, PHP, Tailwind CSS, and Supabase. Managed both frontend and backend development, database integration, and optimization. Leveraged AI-assisted coding tools to reduce development time by up to 30% while maintaining clean and efficient code.',
-      image: '../../assets/freelance-icon.svg'
+      image: '../../assets/jamz.png'
     },
     {
       year: 'Jul 2024 – Jun 2025',
       title: 'Full Stack Web Developer (OJT & Internship) ',
       company: 'Quanby Solutions Inc.',
       description: '•	Developed and maintained web applications using Angular, Supabase, and modern tech stacks. Implemented responsive UI designs ensuring cross-browser compatibility. Collaborated using Git for version control and participated in code reviews. Optimized database queries, improving efficiency and load performance.',
-      image: '../../assets/quanby-icon.svg'
+      image: '../../assets/qb.jpg'
     }
   ];
 

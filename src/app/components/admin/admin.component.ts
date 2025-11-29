@@ -280,4 +280,36 @@ export class AdminComponent implements OnInit, OnDestroy, AfterViewInit {
     if (diffHours < 24) return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
     return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
   }
+
+  /**
+   * Get location source text for display
+   */
+  getLocationSourceText(source: string | undefined): string {
+    switch (source) {
+      case 'gps':
+        return '📍 GPS Location';
+      case 'both':
+        return '🌍📍 IP + GPS';
+      case 'ip':
+      default:
+        return '🌍 IP Location';
+    }
+  }
+
+  /**
+   * Get CSS classes for location source badge
+   */
+  getLocationSourceBadgeClass(source: string | undefined): string {
+    const baseClasses = this.isDarkMode ? 'text-white' : 'text-gray-800';
+    
+    switch (source) {
+      case 'gps':
+        return `${baseClasses} bg-green-100 dark:bg-green-800`;
+      case 'both':
+        return `${baseClasses} bg-blue-100 dark:bg-blue-800`;
+      case 'ip':
+      default:
+        return `${baseClasses} bg-yellow-100 dark:bg-yellow-800`;
+    }
+  }
 }

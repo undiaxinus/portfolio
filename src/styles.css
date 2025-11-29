@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html, body {
+    @apply bg-[#F7F4E1] dark:bg-[#015551];
+    min-height: 100vh;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

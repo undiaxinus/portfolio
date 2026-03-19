@@ -1,6 +1,31 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+interface WebProject {
+  name: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  demo: string | null;
+  isConfidential?: boolean;
+  isArchived?: boolean;
+  isInternal?: boolean;
+}
+
+interface TechnicalProject {
+  title: string;
+  description: string;
+  technologies: string[];
+  image: string;
+}
+
+interface GalleryItem {
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+}
+
 @Component({
   selector: 'app-portfolio',
   standalone: true,
@@ -9,7 +34,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './portfolio.component.css'
 })
 export class PortfolioComponent {
-  webProjects = [
+  webProjects: WebProject[] = [
     {
       name: 'The Marino World website',
       description: 'Marino World is a digital platform that provides up-to-date maritime news, industry insights, and access to monthly digital magazine issues focused on the Philippine maritime sector. The website serves both general readers and industry professionals, offering features such as an online magazine viewer, article archives, and a user-friendly admin panel for content management.',
@@ -89,7 +114,34 @@ export class PortfolioComponent {
     }
   ];
 
-  technicalProjects = [
+  ruralBankProjects: WebProject[] = [
+    {
+      name: 'Apache Superset Setup & Deployment (Rocky Linux) [Internal]',
+      description: 'Installed and configured Apache Superset on a Rocky Linux server for internal BI reporting and dashboarding. Prepared the environment, handled service configuration, and ensured stable access for users.',
+      technologies: ['Apache Superset', 'Rocky Linux', 'Linux', 'SQL', 'PostgreSQL'],
+      image: 'assets/Rural-Bank-of-Guinobatan.jpg',
+      demo: null,
+      isInternal: true
+    },
+    {
+      name: 'Real-time API Transaction Monitoring System [Discontinued]',
+      description: 'Built a real-time monitoring dashboard for API transactions using Laravel to help track request status and troubleshoot issues. The initiative was later discontinued when monitoring was moved to Superset-based reporting.',
+      technologies: ['Laravel', 'PHP', 'REST API', 'SQL', 'Mysql'],
+      image: 'assets/Rural-Bank-of-Guinobatan.jpg',
+      demo: null,
+      isArchived: true
+    },
+    {
+      name: 'Asenso Web Portal Debugging & Support [Internal]',
+      description: 'Debugged Instapay transaction filtering and SOA report generation when results were not working as expected. Fixed issues related to downloading/exporting transaction records, improving reliability for operations and reporting.',
+      technologies: ['PHP', 'JavaScript', 'SQL', 'Git'],
+      image: 'assets/Rural-Bank-of-Guinobatan.jpg',
+      demo: null,
+      isInternal: true
+    }
+  ];
+
+  technicalProjects: TechnicalProject[] = [
     {
       title: 'Vehicle Tracking & Passenger Counting Device',
       description: 'IoT-based vehicle tracking system using Arduino with real-time GPS tracking, LCD display, and LoRa communication. Features touch sensor interface and battery-powered operation.',
@@ -116,7 +168,7 @@ export class PortfolioComponent {
     }
   ];
 
-  galleryItems = [
+  galleryItems: GalleryItem[] = [
     {
       title: 'Digital Art 1',
       category: 'Digital',
@@ -173,9 +225,9 @@ export class PortfolioComponent {
     }
   ];
 
-  selectedImage: any = null;
+  selectedImage: GalleryItem | null = null;
 
-  openImage(image: any) {
+  openImage(image: GalleryItem) {
     this.selectedImage = image;
     document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
   }

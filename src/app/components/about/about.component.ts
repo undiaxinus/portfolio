@@ -20,23 +20,31 @@ export class AboutComponent {
   showCertificateModal = false;
 
   skills = {
-    languages: ['PHP', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'SQL', 'C++', 'Python'],
-    frameworks: ['Angular', 'Tailwind CSS', 'Bootstrap', 'Next.js', 'Laravel'],
-    tools: ['Node.js', 'Git', 'Visual Studio Code', 'Supabase', 'Figma'],
-    databases: ['MySQL', 'PostgreSQL', 'WordPress', 'Firebase'],
+    languages: ['TypeScript', 'JavaScript', 'PHP', 'SQL', 'HTML', 'CSS'],
+    frameworks: ['Angular', 'Tailwind CSS', 'Laravel', 'Bootstrap'],
+    tools: ['Node.js', 'Git', 'GitHub', 'Visual Studio Code', 'Postman', 'Docker', 'Figma'],
+    databases: ['PostgreSQL', 'MySQL', 'Supabase'],
     softSkills: [
+      'Analytical troubleshooting',
+      'Communication',
       'Problem-solving',
-      'Team Collaboration',
       'Time Management',
-      'Adaptability',
       'Willingness to Learn',
-      'Prompt Engineering for Code Generation'
+      'Documentation'
     ]
   };
 
   experiences: Experience[] = [
     {
-      year: '2023 - Present',
+      year: 'Oct 2025 - Present',
+      title: 'IT Developer',
+      company: 'Rural Bank of Guinobatan Inc.',
+      description:
+        'Provided technical support by investigating partner transactions and verifying success/failure directly from the database. Worked as a backend developer for internal systems and integrations. Supported UAT/DevOps by installing, configuring, and deploying test builds/environments for QA and user testing.',
+      image: '../../assets/Rural-Bank-of-Guinobatan.jpg'
+    },
+    {
+      year: '2023 - Aug 2025',
       title: 'Freelance Web Developer',
       company: 'Self-Employed',
       description: 'Designed and developed responsive websites for various clients on a per-project basis. Built full-stack applications using Angular, PHP, Tailwind CSS, and Supabase. Managed both frontend and backend development, database integration, and optimization. Leveraged AI-assisted coding tools to reduce development time by up to 30% while maintaining clean and efficient code.',

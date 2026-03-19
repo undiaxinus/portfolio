@@ -67,6 +67,64 @@
       </div>
     </div>
 
+    <div class="mb-20">
+      <h3 class="text-3xl font-bold text-[#015551] dark:text-[#FDFBEE] mb-8 animate-fadeIn" style="animation-delay: 650ms">Rural Bank Projects</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div *ngFor="let project of ruralBankProjects; let i = index" 
+             class="group bg-white dark:bg-[#015551] rounded-2xl shadow-xl overflow-hidden
+                    transform transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl animate-fadeIn"
+             [style.animation-delay]="(i * 150 + 800) + 'ms'">
+          <div class="relative overflow-hidden h-56 confidential-image-container">
+            <img [src]="project.image" [alt]="project.name" 
+                 class="w-full h-full object-cover transform transition duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div *ngIf="project.isConfidential">
+              <div class="confidential-circle"></div>
+              <div class="confidential-overlay">CONFIDENTIAL</div>
+            </div>
+          </div>
+          <div class="p-8">
+            <h4 class="text-2xl font-bold text-[#015551] dark:text-[#FDFBEE] mb-3">{{project.name}}</h4>
+            <p class="text-[#015551]/90 dark:text-[#FDFBEE]/90 mb-6 text-lg leading-relaxed">{{project.description}}</p>
+            
+            <div class="mb-6">
+              <div class="flex flex-wrap gap-3">
+                <span *ngFor="let tech of project.technologies" 
+                      class="px-4 py-2 bg-[#57B4BA]/15 text-[#015551] dark:text-[#57B4BA] rounded-full text-sm font-medium
+                             border border-[#57B4BA]/30 shadow-sm hover:bg-[#57B4BA]/25 transition-colors">
+                  {{tech}}
+                </span>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-4 border-t border-[#57B4BA]/20">
+              <ng-container *ngIf="!project.isConfidential && !project.isArchived && !project.isInternal; else restrictedAccessRural">
+                <a [href]="project.demo" target="_blank" 
+                   class="inline-flex items-center text-[#FE4F2D] hover:text-[#57B4BA] transition-colors font-medium">
+                  <span>View Live Demo</span>
+                  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+              </ng-container>
+              <ng-template #restrictedAccessRural>
+                <span class="inline-flex items-center text-gray-600 dark:text-gray-400 font-medium">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path *ngIf="project.isConfidential" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z"></path>
+                    <path *ngIf="project.isArchived" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+                    <path *ngIf="project.isInternal" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                  </svg>
+                  <span>{{project.isConfidential ? 'Demo Access Restricted' : 
+                          project.isArchived ? 'Project Archived' : 
+                          'Internal System Only'}}</span>
+                </span>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Technical Projects -->
     <div>
       <h3 class="text-3xl font-bold text-[#015551] dark:text-[#FDFBEE] mb-8 animate-fadeIn" style="animation-delay: 800ms">Technical Projects</h3>

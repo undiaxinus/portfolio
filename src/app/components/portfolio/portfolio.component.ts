@@ -36,30 +36,30 @@ interface GalleryItem {
 export class PortfolioComponent {
   webProjects: WebProject[] = [
     {
-      name: 'The Marino World website',
-      description: 'Marino World is a digital platform that provides up-to-date maritime news, industry insights, and access to monthly digital magazine issues focused on the Philippine maritime sector. The website serves both general readers and industry professionals, offering features such as an online magazine viewer, article archives, and a user-friendly admin panel for content management.',
+      name: 'Marino World Website',
+      description: 'Built a content-driven platform for maritime news, digital magazine access, and industry updates using Next.js, Prisma, and Supabase. The project supports content management and delivers a responsive experience for readers and administrators.',
       technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Prisma'],
       image: 'assets/photos/marinoworld.png',
       demo: 'https://themarinoworld.com/dashboard'
     },
     {
-      name: 'Sabat MO!',
-      description: 'A comprehensive web and mobile application for tracking jeepney routes and locations. Built with HTML, CSS, JavaScript, PHP for web interface and MIT App Inventor for the mobile app.',
+      name: 'Real-Time Jeepney Locator & Passenger Monitoring System',
+      description: 'Developed a real-time tracking and passenger monitoring system for public transportation using PHP, JavaScript, and C++. The project combines location tracking and passenger data monitoring to support transport visibility and operational insights.',
       technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MIT App Inventor'],
       image: 'assets/photos/jeepfinder.png',
       demo: 'https://peachpuff-donkey-807602.hostingersite.com'
     },
     {
-      name: 'Fidelity Bond Alert Monitoring System',
-      description: '[CONFIDENTIAL PROJECT] An enterprise monitoring and alert system built with Angular and Kotlin. Due to confidentiality agreements, detailed information and demo access are restricted.',
+      name: 'Automated Alert System',
+      description: '[CONFIDENTIAL PROJECT] Integrated an Angular frontend with a Kotlin-based Android backend to support direct SIM-based SMS alerts. Due to confidentiality agreements, detailed implementation information and demo access remain restricted.',
       technologies: ['Angular', 'Kotlin', 'Supabase', 'REST API', 'Material Design'],
       image: 'assets/photos/fbus.png',
       demo: null, // Confidential - access restricted
       isConfidential: true,
     },
     {
-      name: '16 in 1 Tea - Herbal Tea Shop',
-      description: 'An online shop specializing in herbal tea products. Features product catalog, shopping cart, user accounts, and secure checkout.',
+      name: 'E-commerce Website - ALBAY Alingatong Herbal Roots',
+      description: 'Developed an e-commerce website with product browsing, shopping cart functionality, and order handling using PHP and MySQL. The project focused on delivering a responsive storefront and a practical purchasing flow for customers.',
       technologies: ['HTML', 'JavaScript', 'PHP', 'CSS', 'MySQL'],
       image: 'assets/photos/16in1.png',
       demo: 'https://www.16in1tea.com'
@@ -81,8 +81,8 @@ export class PortfolioComponent {
     //   github: 'https://github.com/undiaxinus/grading-portal'
     // },
     {
-      name: 'Business Permit Document Management System',
-      description: '[CONFIDENTIAL PROJECT] A comprehensive system for managing business permit applications and documents. Features request for quotation (RFQ) processing, document tracking, workflow automation, and status notifications. Due to NDA, detailed information and demo access are restricted.',
+      name: 'RFQ Business Permit Document Management System',
+      description: '[CONFIDENTIAL PROJECT] Developed an Angular and Supabase-based system for document submission, status tracking, and approval workflows. Due to confidentiality agreements, detailed information and demo access are restricted.',
       technologies: ['Angular', 'TypeScript', 'Supabase', 'Node.js'],
       image: 'assets/photos/bpdm.png',
       demo: null,
@@ -97,8 +97,8 @@ export class PortfolioComponent {
     //   github: 'https://github.com/undiaxinus/albay-chambers'
     // },
     {
-      name: 'The Apple Peach House Platform [Archived]',
-      description: 'A specialized platform for The Apple Peach House featuring room reservations, event bookings, and property management. Includes features for room availability checking, online payments, guest management, and event scheduling. (Project is no longer active)',
+      name: 'PeachPerfect Hotel Management System [Archived]',
+      description: 'Developed a Laravel-based hotel booking and guest management system with payment tracking and reservation support. The platform helped manage hospitality operations through a centralized web-based workflow. (Project is no longer active)',
       technologies: ['PHP', 'JavaScript', 'MySQL', 'CSS'],
       image: 'assets/photos/applepeach.png',
       demo: null,
@@ -117,25 +117,41 @@ export class PortfolioComponent {
   ruralBankProjects: WebProject[] = [
     {
       name: 'Apache Superset Setup & Deployment (Rocky Linux) [Internal]',
-      description: 'Installed and configured Apache Superset on a Rocky Linux server for internal BI reporting and dashboarding. Prepared the environment, handled service configuration, and ensured stable access for users.',
-      technologies: ['Apache Superset', 'Rocky Linux', 'Linux', 'SQL', 'PostgreSQL'],
-      image: 'assets/Rural-Bank-of-Guinobatan.jpg',
+      description: 'Installed and configured Apache Superset on a Rocky Linux server to support internal reporting and dashboarding. Prepared the environment, configured services, and ensured stable access for business users.',
+      technologies: ['Apache Superset', 'Rocky Linux', 'Linux', 'SQL'],
+      image: 'assets/photos/superset.png',
       demo: null,
       isInternal: true
     },
     {
       name: 'Real-time API Transaction Monitoring System [Discontinued]',
-      description: 'Built a real-time monitoring dashboard for API transactions using Laravel to help track request status and troubleshoot issues. The initiative was later discontinued when monitoring was moved to Superset-based reporting.',
+      description: 'Built a Laravel-based dashboard for monitoring API transaction activity, request status, and operational issues. The solution was later discontinued after reporting was transitioned to Superset-based dashboards.',
       technologies: ['Laravel', 'PHP', 'REST API', 'SQL', 'Mysql'],
-      image: 'assets/Rural-Bank-of-Guinobatan.jpg',
+      image: 'assets/photos/rbgi.png',
       demo: null,
       isArchived: true
     },
     {
       name: 'Asenso Web Portal Debugging & Support [Internal]',
-      description: 'Debugged Instapay transaction filtering and SOA report generation when results were not working as expected. Fixed issues related to downloading/exporting transaction records, improving reliability for operations and reporting.',
+      description: 'Provided debugging and support for Instapay transaction filtering and SOA report generation in the Asenso web portal. Resolved issues affecting transaction exports and reporting reliability for internal users.',
       technologies: ['PHP', 'JavaScript', 'SQL', 'Git'],
-      image: 'assets/Rural-Bank-of-Guinobatan.jpg',
+      image: 'assets/photos/asenso.png',
+      demo: null,
+      isInternal: true
+    },
+    {
+      name: 'Automated Transaction Settlement Using Python [Internal]',
+      description: 'Implemented an automated transaction settlement process using a Python background script to reduce manual work, improve accuracy, and speed up end-of-day operations. The solution standardized internal settlement flow and minimized operational errors.',
+      technologies: ['Python', 'SQL', 'MySQL', 'Background Processing', 'Automation'],
+      image: 'assets/photos/rbgi.png',
+      demo: null,
+      isInternal: true
+    },
+    {
+      name: 'MySQL Replication for Disaster Recovery and Reporting [Internal]',
+      description: 'Set up MySQL replication between servers to improve disaster recovery readiness and provide a read replica for reporting workloads. The setup increased data availability and reduced reporting load on the primary transactional database.',
+      technologies: ['MySQL', 'Database Replication', 'SQL', 'Linux', 'Disaster Recovery'],
+      image: 'assets/photos/rbgi.png',
       demo: null,
       isInternal: true
     }

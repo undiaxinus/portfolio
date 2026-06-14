@@ -20,41 +20,41 @@ export class AboutComponent {
   showCertificateModal = false;
 
   skills = {
-    languages: ['TypeScript', 'JavaScript', 'PHP', 'SQL', 'HTML', 'CSS'],
-    frameworks: ['Angular', 'Tailwind CSS', 'Laravel', 'Bootstrap'],
-    tools: ['Node.js', 'Git', 'GitHub', 'Visual Studio Code', 'Postman', 'Docker', 'Figma'],
-    databases: ['PostgreSQL', 'MySQL', 'Supabase'],
+    languages: ['PHP', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'SQL', 'Python (basic)'],
+    frameworks: ['Angular', 'Next.js', 'Laravel', 'Tailwind CSS', 'Bootstrap'],
+    tools: ['Git', 'Node.js', 'Visual Studio Code', 'Supabase'],
+    databases: ['MySQL', 'PostgreSQL', 'WordPress', 'Firebase (basic)'],
     softSkills: [
-      'Analytical troubleshooting',
-      'Communication',
-      'Problem-solving',
+      'Problem-Solving',
+      'Team Collaboration',
       'Time Management',
+      'Adaptability',
       'Willingness to Learn',
-      'Documentation'
+      'Communication'
     ]
   };
 
   experiences: Experience[] = [
     {
-      year: 'Oct 2025 - Present',
+      year: 'October 2025 - June 2026',
       title: 'IT Developer',
-      company: 'Rural Bank of Guinobatan Inc.',
+      company: 'Rural Bank of Guinubatan Inc.',
       description:
-        'Provided technical support by investigating partner transactions and verifying success/failure directly from the database. Worked as a backend developer for internal systems and integrations. Supported UAT/DevOps by installing, configuring, and deploying test builds/environments for QA and user testing.',
+        'Developed, maintained, and supported banking-related applications and internal systems. Managed databases, optimized SQL queries, investigated incidents, and resolved system and application issues to improve reliability. Assisted in software deployment, testing, and maintenance of system enhancements.',
       image: '../../assets/Rural-Bank-of-Guinobatan.jpg'
     },
     {
-      year: '2023 - Aug 2025',
+      year: '2023 - August 2025',
       title: 'Freelance Web Developer',
       company: 'Self-Employed',
-      description: 'Designed and developed responsive websites for various clients on a per-project basis. Built full-stack applications using Angular, PHP, Tailwind CSS, and Supabase. Managed both frontend and backend development, database integration, and optimization. Leveraged AI-assisted coding tools to reduce development time by up to 30% while maintaining clean and efficient code.',
+      description: 'Designed and developed responsive websites and custom web applications for multiple clients. Built full-stack solutions using Angular, PHP, Tailwind CSS, and Supabase while handling frontend development, backend logic, database integration, and performance optimization. Used AI-assisted coding tools to reduce development time while maintaining clean and efficient code.',
       image: '../../assets/jamz.png'
     },
     {
-      year: 'Jul 2024 – Jun 2025',
-      title: 'Full Stack Web Developer (OJT & Internship) ',
+      year: 'July 2024 - June 2025',
+      title: 'Full Stack Web Developer (OJT & Internship)',
       company: 'Quanby Solutions Inc.',
-      description: '•	Developed and maintained web applications using Angular, Supabase, and modern tech stacks. Implemented responsive UI designs ensuring cross-browser compatibility. Collaborated using Git for version control and participated in code reviews. Optimized database queries, improving efficiency and load performance.',
+      description: 'Developed and maintained web applications using Angular, Supabase, and modern web technologies. Built responsive user interfaces, ensured cross-browser compatibility, collaborated with the team using Git, and contributed to code reviews and continuous improvements. Improved database performance and application efficiency through query optimization and system enhancements.',
       image: '../../assets/qb.jpg'
     }
   ];

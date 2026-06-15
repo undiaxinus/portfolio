@@ -27,7 +27,7 @@ export class ContactComponent implements OnInit {
     this.contactInfo = {
       email: 'anonuevojamille@gmail.com',
       phone: '+63 9103401844 ',
-      location: 'Sto. Domingo, Albay, Philippines',
+      location: 'Legazpi, Albay, Philippines',
       socialMedia: [
         {
           name: 'Facebook',

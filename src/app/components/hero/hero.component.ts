@@ -14,7 +14,7 @@ export class HeroComponent {
     name: 'Jamille B. Añonuevo',
     title: 'Full Stack Developer',
     description: 'Passionate about creating innovative web solutions and turning ideas into reality.',
-    location: 'Sto. Domingo, Albay, Philippines',
+    location: 'Legazpi, Albay, Philippines',
     profileImage: '../../assets/jamz.jpg'
   };
 }

@@ -10,6 +10,7 @@ interface WebProject {
   isConfidential?: boolean;
   isArchived?: boolean;
   isInternal?: boolean;
+  imageFit?: 'contain' | 'cover';
 }
 
 interface TechnicalProject {
@@ -35,6 +36,22 @@ interface GalleryItem {
 })
 export class PortfolioComponent {
   webProjects: WebProject[] = [
+    {
+      name: 'MotoPilot AI Riding Companion',
+      description: 'Developed a Flutter Android motorcycle companion with an AI assistant for maintenance explanations, pre-ride checklists, and route comparison. The app uses matched addresses and rider confirmation before applying a route, with context from saved service schedules and the current odometer. Cover image is a concept mockup.',
+      technologies: ['Flutter', 'Dart', 'Cloudflare Workers', 'AI Integration', 'Maps'],
+      image: 'assets/photos/motopilot-portfolio-poster.png',
+      imageFit: 'cover',
+      demo: null
+    },
+    {
+      name: 'NUEVO Fashion E-commerce',
+      description: 'Built a responsive fashion storefront with curated collections, product browsing, and an editorial homepage carousel using Next.js, React, and TypeScript. The portfolio cover presents a concept mockup inspired by the website design.',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Supabase'],
+      image: 'assets/photos/nuevo-portfolio-poster.png',
+      imageFit: 'cover',
+      demo: 'https://nuevo-ph.vercel.app/'
+    },
     {
       name: 'Marino World Website',
       description: 'Built a content-driven platform for maritime news, digital magazine access, and industry updates using Next.js, Prisma, and Supabase. The project supports content management and delivers a responsive experience for readers and administrators.',

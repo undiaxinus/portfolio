@@ -15,7 +15,7 @@
                     transform transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl animate-fadeIn"
              [style.animation-delay]="(i * 150 + 400) + 'ms'">
           <div class="relative overflow-hidden h-56 confidential-image-container">
-            <img [src]="project.image" [alt]="project.name" 
+            <img [src]="project.image" [alt]="project.name" [style.object-fit]="project.imageFit || 'cover'" [style.background-color]="project.imageFit === 'contain' ? '#F7F4E1' : null" 
                  class="w-full h-full object-cover transform transition duration-700 group-hover:scale-110">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div *ngIf="project.isConfidential">
@@ -40,7 +40,7 @@
 
             <!-- Links -->
             <div class="flex justify-between items-center pt-4 border-t border-[#57B4BA]/20">
-              <ng-container *ngIf="!project.isConfidential && !project.isArchived && !project.isInternal; else restrictedAccess">
+              <ng-container *ngIf="project.demo && !project.isConfidential && !project.isArchived && !project.isInternal; else restrictedAccess">
                 <a [href]="project.demo" target="_blank" 
                    class="inline-flex items-center text-[#FE4F2D] hover:text-[#57B4BA] transition-colors font-medium">
                   <span>View Live Demo</span>
@@ -58,7 +58,7 @@
                   </svg>
                   <span>{{project.isConfidential ? 'Demo Access Restricted' : 
                           project.isArchived ? 'Project Archived' : 
-                          'Internal System Only'}}</span>
+                          project.isInternal ? 'Internal System Only' : 'Live Demo Coming Soon'}}</span>
                 </span>
               </ng-template>
             </div>

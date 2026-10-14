@@ -54,15 +54,15 @@ export class PortfolioComponent {
     },
     {
       name: 'Marino World Website',
-      description: 'Built a content-driven platform for maritime news, digital magazine access, and industry updates using Next.js, Prisma, and Supabase. The project supports content management and delivers a responsive experience for readers and administrators.',
+      description: 'Internship project supporting a maritime content platform using Next.js, Prisma, and Supabase.',
       technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Prisma'],
       image: 'assets/photos/marinoworld.png',
       demo: 'https://themarinoworld.com/dashboard'
     },
     {
       name: 'Real-Time Jeepney Locator & Passenger Monitoring System',
-      description: 'Developed a real-time tracking and passenger monitoring system for public transportation using PHP, JavaScript, and C++. The project combines location tracking and passenger data monitoring to support transport visibility and operational insights.',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MIT App Inventor'],
+      description: 'Capstone project using PHP, JavaScript, C++, GPS/IoT components, and real-time data for jeepney location tracking and passenger monitoring. Recognized as Best in Capstone Project.',
+      technologies: ['PHP', 'JavaScript', 'C++', 'GPS', 'IoT', 'Real-Time Data'],
       image: 'assets/photos/jeepfinder.png',
       demo: 'https://peachpuff-donkey-807602.hostingersite.com'
     },
@@ -99,8 +99,8 @@ export class PortfolioComponent {
     // },
     {
       name: 'RFQ Business Permit Document Management System',
-      description: '[CONFIDENTIAL PROJECT] Developed an Angular and Supabase-based system for document submission, status tracking, and approval workflows. Due to confidentiality agreements, detailed information and demo access are restricted.',
-      technologies: ['Angular', 'TypeScript', 'Supabase', 'Node.js'],
+      description: '[CONFIDENTIAL PROJECT] Assisted with an Angular and Supabase system for document submission, status tracking, and approval workflows. Detailed information and demo access are restricted.',
+      technologies: ['Angular', 'Supabase'],
       image: 'assets/photos/bpdm.png',
       demo: null,
       isConfidential: true

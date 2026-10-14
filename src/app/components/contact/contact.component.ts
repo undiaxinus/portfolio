@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { profile } from '../../data/profile';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
@@ -25,9 +26,9 @@ export class ContactComponent implements OnInit {
     });
 
     this.contactInfo = {
-      email: 'anonuevojamille@gmail.com',
-      phone: '+63 9103401844 ',
-      location: 'Legazpi, Albay, Philippines',
+      email: profile.email,
+      phone: profile.phone,
+      location: profile.location,
       socialMedia: [
         {
           name: 'Facebook',

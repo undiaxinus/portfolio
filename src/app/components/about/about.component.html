@@ -19,10 +19,10 @@
 
       <div class="lg:col-span-8 animate-fadeIn" style="animation-delay: 400ms">
         <h3 class="text-3xl font-bold text-[#015551] dark:text-[#FDFBEE] mb-6">
-          Information Systems Graduate &amp; Web Developer
+          {{profile.title}}
         </h3>
         <p class="text-lg text-[#015551]/80 dark:text-[#FDFBEE]/80 mb-8 leading-relaxed text-justify hyphens-auto">
-          I am an Information Systems graduate with hands-on experience in web development, IT support, database management, and internal business applications. I have worked with technologies such as Angular, Next.js, PHP, Laravel, MySQL, and Supabase through my work, internship, and personal projects. I have also assisted with system issues, reports, documentation, and application support. I am continuously learning and improving my technical skills, with a focus on creating simple, practical, and reliable solutions for real-world needs.
+          {{profile.summary}}
         </p>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -30,8 +30,8 @@
                style="animation-delay: 600ms">
             <div class="flex flex-wrap justify-center lg:justify-start gap-3">
               <span class="px-4 py-2 rounded-full bg-[#57B4BA]/15 dark:bg-[#57B4BA]/25 text-[#015551] dark:text-[#FDFBEE] text-sm font-medium">Banking Systems</span>
-              <span class="px-4 py-2 rounded-full bg-[#57B4BA]/15 dark:bg-[#57B4BA]/25 text-[#015551] dark:text-[#FDFBEE] text-sm font-medium">Full Stack Development</span>
-              <span class="px-4 py-2 rounded-full bg-[#57B4BA]/15 dark:bg-[#57B4BA]/25 text-[#015551] dark:text-[#FDFBEE] text-sm font-medium">Database Optimization</span>
+              <span class="px-4 py-2 rounded-full bg-[#57B4BA]/15 dark:bg-[#57B4BA]/25 text-[#015551] dark:text-[#FDFBEE] text-sm font-medium">Web Development</span>
+              <span class="px-4 py-2 rounded-full bg-[#57B4BA]/15 dark:bg-[#57B4BA]/25 text-[#015551] dark:text-[#FDFBEE] text-sm font-medium">Databases &amp; Troubleshooting</span>
               <span class="px-4 py-2 rounded-full bg-[#57B4BA]/15 dark:bg-[#57B4BA]/25 text-[#015551] dark:text-[#FDFBEE] text-sm font-medium">Reporting &amp; Internal Tools</span>
               <span class="px-4 py-2 rounded-full bg-[#57B4BA]/15 dark:bg-[#57B4BA]/25 text-[#015551] dark:text-[#FDFBEE] text-sm font-medium">Application Support</span>
             </div>
@@ -41,9 +41,11 @@
                style="animation-delay: 700ms">
             <h4 class="text-lg font-semibold text-[#015551] dark:text-[#FDFBEE] mb-4">Education</h4>
             <ul class="space-y-3 text-[#015551]/70 dark:text-[#FDFBEE]/70 text-sm">
-              <li class="border-l-2 border-[#57B4BA] pl-3 hover:translate-x-2 transition-transform duration-300">Bachelor of Science in Information Systems</li>
-              <li class="border-l-2 border-[#57B4BA] pl-3 hover:translate-x-2 transition-transform duration-300">Southern Luzon Technological College Foundation, Inc.</li>
-              <li class="border-l-2 border-[#57B4BA] pl-3 hover:translate-x-2 transition-transform duration-300">Web Development & Systems Integration</li>
+              <li *ngFor="let edu of education" class="border-l-2 border-[#57B4BA] pl-3">
+                <p class="font-semibold">{{edu.degree}}</p>
+                <p>{{edu.school}}</p>
+                <p>{{edu.year}}<span *ngIf="edu.description"> · {{edu.description}}</span></p>
+              </li>
             </ul>
           </div>
 
@@ -63,7 +65,7 @@
 
     <!-- Skills Section -->
     <div class="mb-20">
-      <h3 class="text-3xl font-bold text-center text-[#015551] dark:text-[#FDFBEE] mb-12 animate-fadeIn" style="animation-delay: 1000ms">Technical Skills</h3>
+      <h3 class="text-3xl font-bold text-center text-[#015551] dark:text-[#FDFBEE] mb-12 animate-fadeIn" style="animation-delay: 1000ms">Relevant Skills</h3>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="bg-white/70 dark:bg-[#015551]/80 p-8 rounded-2xl shadow-md backdrop-blur-sm border border-[#57B4BA]/10 hover:border-[#57B4BA] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl animate-fadeIn"
@@ -116,6 +118,13 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="mb-20">
+      <h3 class="text-3xl font-bold text-center text-[#015551] dark:text-[#FDFBEE] mb-8">IT &amp; Support</h3>
+      <ul class="flex flex-wrap justify-center gap-3 text-[#015551] dark:text-[#FDFBEE]">
+        <li *ngFor="let skill of skills.support" class="px-4 py-2 rounded-full bg-[#57B4BA]/15">{{skill}}</li>
+      </ul>
     </div>
 
     <!-- Experience Timeline -->

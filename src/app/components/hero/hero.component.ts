@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { profile } from '../../data/profile';
 
 @Component({
   selector: 'app-hero',
@@ -11,10 +12,8 @@ import { RouterModule } from '@angular/router';
 })
 export class HeroComponent {
   personalInfo = {
-    name: 'Jamille B. Añonuevo',
-    title: 'Full Stack Developer',
-    description: 'Passionate about creating innovative web solutions and turning ideas into reality.',
-    location: 'Legazpi, Albay, Philippines',
+    ...profile,
+    description: profile.summary,
     profileImage: '../../assets/jamz.jpg'
   };
 }
